@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Dashboard | IHS Kenya Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; }
+    .brand-navy { color: #00365A; }
+    .brand-bg-navy { background-color: #00365A; }
+    .brand-red { color: #C41E3A; }
+    .brand-bg-red { background-color: #C41E3A; }
+    .nav-active { background-color: rgba(255,255,255,0.1); border-left: 4px solid #C41E3A; }
+    .sidebar-item:hover { background-color: rgba(255,255,255,0.05); }
+    .card-shadow { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+  <!-- INSTITUTIONAL SIDEBAR -->
+  <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
+    <div class="p-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="../ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto brightness-0 invert">
+        <div class="flex flex-col">
+          <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="flex-1 mt-6 px-3 space-y-1">
+      <a href="02-ihs-kenya-admin-dashboard.html" class="flex items-center gap-3 px-4 py-3 nav-active rounded-lg transition-all group">
+        <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold text-white">Operations Dashboard</span>
+      </a>
+      <a href="03-admin-portal-submissions-inbox.html" class="flex items-center justify-between px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <div class="flex items-center gap-3">
+          <iconify-icon icon="lucide:list-checks" class="text-xl"></iconify-icon>
+          <span class="text-sm font-semibold">Submission Pipeline</span>
+        </div>
+        <span class="bg-red-600 text-[10px] px-2 py-0.5 rounded-full font-bold text-white">14</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:archive" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Institutional Archive</span>
+      </a>
+      <a href="05-reports-analytics-ihs-kenya-admin.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Performance Analytics</span>
+      </a>
+      <div class="pt-6 pb-2 px-4">
+        <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
+      </div>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-half" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Access Control</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">System Settings</span>
+      </a>
+    </nav>
+
+    <!-- User Profile Strip -->
+    <div class="p-4 border-t border-white/10 bg-black/5">
+      <div class="flex items-center gap-3 px-2">
+        <div class="w-9 h-9 rounded-full brand-bg-red flex items-center justify-center text-xs font-black ring-2 ring-white/10">PK</div>
+        <div class="flex flex-col min-w-0">
+          <span class="text-xs font-bold text-white truncate">Patrick Kamau</span>
+          <span class="text-[9px] text-blue-300 uppercase font-bold tracking-tight">Superuser Account</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    
+    <!-- TOP GLOBAL NAVIGATION -->
+    <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 z-40">
+      <div class="flex items-center gap-4">
+        <h1 class="text-base font-bold brand-navy uppercase tracking-tight">Operations Dashboard</h1>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[10px] font-bold uppercase tracking-wider">System Integrity Active</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 text-slate-400">
+          <iconify-icon icon="lucide:calendar" class="text-lg"></iconify-icon>
+          <span class="text-xs font-semibold">26 March 2026</span>
+        </div>
+        <div class="h-8 w-px bg-slate-200"></div>
+        <button class="text-slate-400 hover:brand-navy transition-colors relative">
+          <iconify-icon icon="lucide:bell" class="text-2xl"></iconify-icon>
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-white">2</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD CONTENT -->
+    <div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+      
+      <!-- STRATEGIC KPI STRIP -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Qualified Pipeline</span>
+            <iconify-icon icon="lucide:check-circle" class="text-emerald-600 text-xl"></iconify-icon>
+          </div>
+          <div class="text-3xl font-black brand-navy">1,482</div>
+          <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-tighter">Verified & Compliant Only</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow border-l-4 border-l-red-600">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-red-600 uppercase tracking-widest">Automated Rejections</span>
+            <iconify-icon icon="lucide:shield-x" class="text-red-600 text-xl"></iconify-icon>
+          </div>
+          <div class="text-3xl font-black brand-navy">312</div>
+          <p class="text-[10px] text-red-600/70 mt-1 font-bold">Failed Eligibility Thresholds</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">System Efficiency</span>
+            <iconify-icon icon="lucide:zap" class="text-amber-500 text-xl"></iconify-icon>
+          </div>
+          <div class="text-3xl font-black brand-navy">52.4 hrs</div>
+          <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-tighter">Manual Vetting Time Saved</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">External Reviews</span>
+            <iconify-icon icon="lucide:users" class="text-blue-600 text-xl"></iconify-icon>
+          </div>
+          <div class="text-3xl font-black brand-navy">8</div>
+          <p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-tighter">Active QS / Technical Reviewers</p>
+        </div>
+      </div>
+
+      <!-- MAIN LAYOUT GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- ACTIVE PORTFOLIOS (Left 2 Columns) -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-black brand-navy uppercase tracking-widest">Active Institutional Portfolios</h3>
+            <button class="text-xs font-bold brand-red hover:underline flex items-center gap-1">
+              <iconify-icon icon="lucide:plus-circle"></iconify-icon> Initialize New Portfolio
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Portfolio Card 1 -->
+            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden group">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div class="w-12 h-12 rounded-lg brand-bg-navy flex items-center justify-center text-white shadow-md">
+                    <iconify-icon icon="lucide:building-2" class="text-2xl"></iconify-icon>
+                  </div>
+                  <span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[9px] font-black rounded border border-emerald-100 uppercase tracking-widest">Open for Bidding</span>
+                </div>
+                <h4 class="text-lg font-black brand-navy mb-1 group-hover:text-red-600 transition-colors">Riverside Heights Development</h4>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-6">Nairobi • 5 Registered Bid Categories</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                    <span class="block text-[9px] font-black text-slate-400 uppercase tracking-tighter">Qualified Submissions</span>
+                    <span class="text-xl font-black brand-navy">128</span>
+                  </div>
+                  <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                    <span class="block text-[9px] font-black text-slate-400 uppercase tracking-tighter">System Rejections</span>
+                    <span class="text-xl font-black text-red-600">42</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <a href="03-admin-portal-submissions-inbox.html" class="flex-1 text-center py-3 brand-bg-navy text-white text-[10px] font-black rounded uppercase tracking-widest hover:brightness-110 transition-all shadow-md">Enter Portfolio Pipeline</a>
+                  <button class="p-3 bg-slate-100 text-slate-600 rounded hover:bg-slate-200 transition-colors" title="Manage Portfolio Eligibility">
+                    <iconify-icon icon="lucide:sliders-horizontal"></iconify-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Portfolio Card 2 -->
+            <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden group opacity-90">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div class="w-12 h-12 rounded-lg bg-slate-600 flex items-center justify-center text-white shadow-md">
+                    <iconify-icon icon="lucide:landmark" class="text-2xl"></iconify-icon>
+                  </div>
+                  <span class="px-2 py-1 bg-slate-100 text-slate-600 text-[9px] font-black rounded border border-slate-200 uppercase tracking-widest">In Technical Review</span>
+                </div>
+                <h4 class="text-lg font-black brand-navy mb-1">Lakefront Office Towers</h4>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-6">Kisumu • 3 Registered Bid Categories</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                  <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                    <span class="block text-[9px] font-black text-slate-400 uppercase tracking-tighter">Qualified Submissions</span>
+                    <span class="text-xl font-black brand-navy">45</span>
+                  </div>
+                  <div class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                    <span class="block text-[9px] font-black text-slate-400 uppercase tracking-tighter">System Rejections</span>
+                    <span class="text-xl font-black text-red-600">18</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <a href="#" class="flex-1 text-center py-3 border-2 border-slate-200 text-slate-600 text-[10px] font-black rounded uppercase tracking-widest hover:bg-slate-50 transition-all">Review Finalists</a>
+                  <button class="p-3 bg-slate-100 text-slate-600 rounded hover:bg-slate-200 transition-colors">
+                    <iconify-icon icon="lucide:sliders-horizontal"></iconify-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PANEL: PRE-QUALIFICATION STANDARDS (Threshold Manager) -->
+        <div class="space-y-8">
+          
+          <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
+            <div class="p-5 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+              <h3 class="font-black brand-navy text-xs flex items-center gap-2 uppercase tracking-tight">
+                <iconify-icon icon="lucide:shield-check" class="text-lg text-emerald-600"></iconify-icon>
+                Eligibility Thresholds
+              </h3>
+              <button class="text-[10px] font-black brand-red hover:underline uppercase tracking-tighter">Global Edit</button>
+            </div>
+            <div class="p-6 space-y-6">
+              <!-- NCA Threshold -->
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label class="text-[10px] font-black brand-navy uppercase tracking-tighter">Min. NCA Experience</label>
+                  <span class="text-xs font-black brand-red">5 YEARS</span>
+                </div>
+                <input type="range" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-red-600" min="1" max="10" value="5">
+                <p class="text-[9px] text-slate-400 mt-2 italic font-medium">Automatic system-rejection if registration < 5 years.</p>
+              </div>
+
+              <!-- TCC Threshold -->
+              <div class="flex items-center justify-between p-3 bg-emerald-50 rounded-lg border border-emerald-100">
+                <div class="flex items-center gap-3">
+                  <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600 text-xl"></iconify-icon>
+                  <div>
+                    <p class="text-[10px] font-black brand-navy uppercase tracking-tighter leading-none">Tax Compliance (TCC)</p>
+                    <p class="text-[9px] text-emerald-700 font-bold uppercase mt-1">Hard Gate Mandatory</p>
+                  </div>
+                </div>
+                <div class="w-8 h-4 bg-emerald-500 rounded-full relative shadow-inner">
+                  <div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full"></div>
+                </div>
+              </div>
+
+              <!-- Turnover Threshold -->
+              <div class="space-y-2 pt-2 border-t border-slate-100">
+                <label class="text-[10px] font-black brand-navy uppercase tracking-tighter">Min. Annual Turnover (KES)</label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-400">KES</span>
+                  <input type="text" value="50,000,000" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded text-xs font-black brand-navy focus:outline-none">
+                </div>
+              </div>
+
+              <div class="p-3 bg-amber-50 border border-amber-100 rounded-lg">
+                <p class="text-[9px] text-amber-800 font-bold leading-relaxed uppercase tracking-tighter">
+                  <iconify-icon icon="lucide:info" class="inline text-xs mr-1"></iconify-icon>
+                  Policies defined here enforce immediate field-level rejections on the contractor portal.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- INVITE EXTERNAL EXPERT (QS) -->
+          <div class="bg-white rounded-xl border border-slate-200 card-shadow p-6">
+            <h3 class="font-black brand-navy text-xs flex items-center gap-2 mb-4 uppercase tracking-tight">
+              <iconify-icon icon="lucide:user-plus" class="text-lg text-blue-600"></iconify-icon>
+              Invite Technical Reviewer
+            </h3>
+            <p class="text-[10px] text-slate-500 font-medium leading-relaxed mb-4">Grant temporary технические access to an external Quantity Surveyor or Lead Engineer for portfolio review.</p>
+            <div class="space-y-3">
+              <input type="email" placeholder="official.reviewer@email.com" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs focus:ring-2 focus:ring-blue-900/10 focus:outline-none">
+              <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-bold text-slate-500 focus:outline-none">
+                <option>Assign to Portfolio: Riverside Heights</option>
+                <option>Assign to Portfolio: Lakefront Office Towers</option>
+              </select>
+              <button class="w-full py-3 brand-bg-red text-white text-[10px] font-black rounded uppercase tracking-widest shadow-md hover:brightness-110 transition-all">Send Access Invitation</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

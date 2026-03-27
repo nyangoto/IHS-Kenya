@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IHS Kenya | Track Application Status</title>
+    <meta name="view-transition" content="same-origin">
+    <script src="https://cdn.tailwindcss.com"></script><script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"><style>body{font-family:'Inter',sans-serif;scroll-behavior:smooth}.brand-navy{color:#00365A}.brand-bg-navy{background-color:#00365A}.brand-red{color:#C41E3A}.brand-bg-red{background-color:#C41E3A}.brand-bg-red:hover{background-color:#A01729}.text-charcoal{color:#4D4D4D}.bg-light-gray{background-color:#F5F5F5}.border-navy{border-color:#00365A}.btn-shadow{box-shadow:0px 2px 8px rgba(0,0,0,0.1)}@keyframes fadeIn{from{opacity:0;translate:0 20px}to{opacity:1;translate:0 0}}.animate-fade-in{animation:fadeIn 0.6s ease-out forwards}@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:0.4s;animation-timing-function:cubic-bezier(0.4,0,0.2,1)}::view-transition-old(root){animation-name:fade-out}::view-transition-new(root){animation-name:fade-in}@keyframes fade-out{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(0.98)}}@keyframes fade-in{from{opacity:0;transform:scale(1.02)}to{opacity:1;transform:scale(1)}}.main-nav{view-transition-name:main-nav}.main-footer{view-transition-name:main-footer}.main-content{view-transition-name:main-content}@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:0.5}}.pulse-dot{animation:pulse-dot 2s ease-in-out infinite}</style></head>
+<body>
+<div class="min-h-screen bg-white flex flex-col text-charcoal">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm main-nav">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-10 h-10 brand-bg-navy flex items-center justify-center rounded-sm"><span class="text-white font-black text-xl">IHS</span></div>
+        <div class="flex flex-col"><span class="text-sm font-bold tracking-tight brand-navy leading-none">IHS KENYA</span><span class="text-[10px] text-gray-400 font-medium uppercase tracking-widest">Portal</span></div>
+      </div>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../public portal/01-ihs-kenya-prequalification-portal-landing-page.html" class="text-sm font-medium text-gray-500 hover:text-red-600 transition-colors">Home</a>
+        <a href="01-contractor-projects-listing.html" class="text-sm font-medium text-gray-500 hover:text-red-600 transition-colors">Projects</a>
+        <a href="#" class="text-sm font-medium text-gray-500 hover:text-red-600 transition-colors">Eligibility</a>
+        <a href="#" class="text-sm font-medium text-gray-500 hover:text-red-600 transition-colors">Process</a>
+        <a href="#" class="text-sm font-medium text-gray-500 hover:text-red-600 transition-colors">Support</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hidden sm:block text-sm font-semibold brand-navy px-4 py-2 border-2 border-transparent hover:border-gray-100 rounded">Portal Login</a>
+        <a href="01-contractor-projects-listing.html" class="brand-bg-red text-white text-sm font-semibold px-6 py-2.5 rounded shadow-sm hover:shadow-md transition-all">Browse Projects</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow main-content">
+
+    <!-- TRACKING HERO -->
+    <section class="brand-bg-navy py-12 text-center">
+      <div class="max-w-3xl mx-auto px-6">
+        <h1 class="text-3xl font-extrabold text-white mb-3">Track Application Status</h1>
+        <p class="text-blue-200 leading-relaxed mb-8">Enter your tracking credentials to view the current progress of your prequalification submission.</p>
+        <div class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-4">
+          <div class="flex-1">
+            <label class="text-left text-xs font-bold text-blue-200 uppercase tracking-widest block mb-1.5">Reference Number</label>
+            <input type="text" value="IHS-2024-42775" class="w-full px-4 py-3 rounded text-sm bg-white/10 border border-white/20 text-white placeholder:text-blue-300 focus:outline-none focus:ring-2 focus:ring-red-500">
+          </div>
+          <div class="flex-1">
+            <label class="text-left text-xs font-bold text-blue-200 uppercase tracking-widest block mb-1.5">Email Address</label>
+            <input type="email" value="admin@ext.bult.co.ke" class="w-full px-4 py-3 rounded text-sm bg-white/10 border border-white/20 text-white placeholder:text-blue-300 focus:outline-none focus:ring-2 focus:ring-red-500">
+          </div>
+        </div>
+        <button class="brand-bg-red text-white px-8 py-3 rounded font-bold shadow-sm hover:shadow-md transition-all flex items-center gap-2 mx-auto">
+          <iconify-icon icon="lucide:refresh-cw" class="text-sm"></iconify-icon> Refresh Status
+        </button>
+      </div>
+    </section>
+
+    <!-- STATUS RESULTS -->
+    <section class="py-10 bg-light-gray animate-fade-in">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-8">
+
+          <!-- LEFT COLUMN -->
+          <div class="lg:w-2/3 space-y-6">
+
+            <!-- Current Status Card -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-8">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+                <div>
+                  <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Current Status</p>
+                  <h2 class="text-2xl font-extrabold brand-navy">Under Review</h2>
+                </div>
+                <div class="flex gap-6 text-sm">
+                  <div><span class="text-gray-400 text-xs uppercase font-bold block">Submitted</span><span class="font-semibold brand-navy">Oct 12, 2024</span></div>
+                  <div><span class="text-gray-400 text-xs uppercase font-bold block">Last Updated</span><span class="font-semibold brand-navy">2 Hours Ago</span></div>
+                </div>
+              </div>
+
+              <!-- Progress Timeline -->
+              <div class="flex items-center gap-0 w-full">
+                <!-- Step 1: Submission Received (completed) -->
+                <div class="flex flex-col items-center" style="width:25%">
+                  <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center mb-2">
+                    <iconify-icon icon="lucide:check" class="text-lg"></iconify-icon>
+                  </div>
+                  <p class="text-xs font-semibold text-green-600 text-center">Submission<br>Received</p>
+                </div>
+                <div class="flex-1 h-1 bg-green-500 rounded -mt-6"></div>
+
+                <!-- Step 2: Compliance Verification (completed) -->
+                <div class="flex flex-col items-center" style="width:25%">
+                  <div class="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center mb-2">
+                    <iconify-icon icon="lucide:check" class="text-lg"></iconify-icon>
+                  </div>
+                  <p class="text-xs font-semibold text-green-600 text-center">Compliance<br>Verification</p>
+                </div>
+                <div class="flex-1 h-1 bg-gradient-to-r from-green-500 to-blue-500 rounded -mt-6"></div>
+
+                <!-- Step 3: Technical Assessment (current) -->
+                <div class="flex flex-col items-center" style="width:25%">
+                  <div class="w-10 h-10 rounded-full brand-bg-navy text-white flex items-center justify-center mb-2 pulse-dot">
+                    <iconify-icon icon="lucide:loader-2" class="text-lg"></iconify-icon>
+                  </div>
+                  <p class="text-xs font-semibold brand-navy text-center">Technical<br>Assessment</p>
+                </div>
+                <div class="flex-1 h-1 bg-gray-200 rounded -mt-6"></div>
+
+                <!-- Step 4: Final Approval (pending) -->
+                <div class="flex flex-col items-center" style="width:25%">
+                  <div class="w-10 h-10 rounded-full bg-white border-2 border-gray-200 text-gray-300 flex items-center justify-center mb-2">
+                    <span class="text-sm font-bold">4</span>
+                  </div>
+                  <p class="text-xs font-semibold text-gray-400 text-center">Final<br>Approval</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document Verification Checklist -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+              <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <h3 class="font-bold brand-navy text-sm">Document Verification Checklist</h3>
+                <a href="#" class="text-xs font-bold brand-red hover:underline uppercase tracking-widest">View Summary</a>
+              </div>
+              <div class="divide-y divide-gray-50">
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-sm text-gray-600 flex items-center gap-2"><iconify-icon icon="lucide:file-text" class="text-gray-400"></iconify-icon> Certificate of Incorporation (CR12)</span>
+                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded uppercase">Verified</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-sm text-gray-600 flex items-center gap-2"><iconify-icon icon="lucide:file-text" class="text-gray-400"></iconify-icon> KRA Tax Compliance Certificate</span>
+                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded uppercase">Verified</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-sm text-gray-600 flex items-center gap-2"><iconify-icon icon="lucide:file-text" class="text-gray-400"></iconify-icon> NCA Registration Certificate</span>
+                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded uppercase">Verified</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-sm text-gray-600 flex items-center gap-2"><iconify-icon icon="lucide:file-text" class="text-gray-400"></iconify-icon> NCA Annual Practicing License</span>
+                  <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded uppercase">Pending</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-sm text-gray-600 flex items-center gap-2"><iconify-icon icon="lucide:file-text" class="text-gray-400"></iconify-icon> Reference Letters / Past Projects</span>
+                  <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded uppercase">Pending</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDEBAR -->
+          <div class="lg:w-1/3 space-y-6">
+
+            <!-- Guidance & Next Steps -->
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-6">
+              <h3 class="font-bold brand-navy text-sm mb-3 flex items-center gap-2">
+                <iconify-icon icon="lucide:lightbulb" class="text-amber-500 text-lg"></iconify-icon> Guidance &amp; Next Steps
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">Your application has successfully passed the initial automated vetting. Our procurement team is currently verifying your NCA credentials with the National Construction Authority portal.</p>
+              <ul class="space-y-3 text-sm text-gray-600">
+                <li class="flex items-start gap-2">
+                  <iconify-icon icon="lucide:clock" class="text-amber-500 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Expected verification completion within 48 hours.
+                </li>
+                <li class="flex items-start gap-2">
+                  <iconify-icon icon="lucide:phone" class="text-amber-500 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Keep your phone accessible for potential site visit coordination.
+                </li>
+                <li class="flex items-start gap-2">
+                  <iconify-icon icon="lucide:mail" class="text-amber-500 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Check your email for notifications regarding document verification.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Technical Support -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+              <h3 class="font-bold brand-navy text-sm mb-3">Technical Support</h3>
+              <p class="text-sm text-gray-500 mb-4">Encountering issues with your status or tracking information?</p>
+              <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs text-gray-400 uppercase font-bold">Email Support</span>
+                </div>
+                <a href="mailto:support@ihskenya.com" class="text-sm font-bold brand-navy hover:text-red-600 transition-colors block">support@ihskenya.com</a>
+                <div class="flex items-center gap-2 mt-3">
+                  <span class="text-xs text-gray-400 uppercase font-bold">Helpdesk</span>
+                </div>
+                <a href="tel:+254700123456" class="text-sm font-bold brand-navy hover:text-red-600 transition-colors block">+254 700 123 456</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white py-16 border-t border-gray-100 main-footer">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div><div class="flex items-center gap-2 mb-6"><div class="w-8 h-8 brand-bg-navy flex items-center justify-center rounded-sm"><span class="text-white font-black text-xs">IHS</span></div><span class="text-lg font-bold brand-navy">IHS Kenya</span></div><p class="text-sm text-gray-500 leading-relaxed mb-6">Providing sustainable housing solutions across Kenya through excellence and transparency.</p><div class="flex gap-4"><a href="#" class="text-gray-400 hover:brand-navy transition-colors"><iconify-icon icon="lucide:linkedin" class="text-xl"></iconify-icon></a><a href="#" class="text-gray-400 hover:brand-navy transition-colors"><iconify-icon icon="lucide:twitter" class="text-xl"></iconify-icon></a></div></div>
+        <div><h5 class="font-bold brand-navy mb-6 uppercase text-xs tracking-widest">Portal Links</h5><ul class="space-y-4"><li><a href="#" class="text-sm text-gray-500 hover:text-red-600">Prequalification Guidelines</a></li><li><a href="#" class="text-sm text-gray-500 hover:text-red-600">Ethics & Governance</a></li><li><a href="#" class="text-sm text-gray-500 hover:text-red-600">Procurement Notices</a></li><li><a href="#" class="text-sm text-gray-500 hover:text-red-600">Supplier Portal FAQ</a></li></ul></div>
+        <div><h5 class="font-bold brand-navy mb-6 uppercase text-xs tracking-widest">Regional Offices</h5><ul class="space-y-4"><li class="text-sm text-gray-500"><strong>Nairobi HQ:</strong> Delta Corner Tower, Waiyaki Way</li><li class="text-sm text-gray-500"><strong>Mombasa:</strong> Links Road, Nyali</li><li class="text-sm text-gray-500"><strong>Kisumu:</strong> Mega Plaza Building</li></ul></div>
+        <div><h5 class="font-bold brand-navy mb-6 uppercase text-xs tracking-widest">Support Center</h5><div class="space-y-4"><div class="flex gap-3"><iconify-icon icon="lucide:mail" class="text-xl text-red-600"></iconify-icon><div><p class="text-xs text-gray-400 uppercase font-bold">Email Us</p><a href="mailto:suppliers@ihskenya.com" class="text-sm font-bold brand-navy">suppliers@ihskenya.com</a></div></div><div class="flex gap-3"><iconify-icon icon="lucide:phone" class="text-xl text-red-600"></iconify-icon><div><p class="text-xs text-gray-400 uppercase font-bold">Technical Helpdesk</p><a href="tel:+254700000000" class="text-sm font-bold brand-navy">+254 700 000 000</a></div></div></div></div>
+      </div>
+      <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4"><p class="text-xs text-gray-400">&copy; 2024 IHS Kenya. All rights reserved.</p><div class="flex gap-6"><a href="#" class="text-[10px] text-gray-400 hover:brand-navy uppercase font-bold">Privacy Policy</a><a href="#" class="text-[10px] text-gray-400 hover:brand-navy uppercase font-bold">Terms of Service</a><a href="#" class="text-[10px] text-gray-400 hover:brand-navy uppercase font-bold">Cookie Policy</a></div></div>
+    </div>
+  </footer>
+
+</div>
+</body></html>

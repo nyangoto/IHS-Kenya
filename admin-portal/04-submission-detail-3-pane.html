@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submission Detail - IHS Kenya Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="view-transition" content="same-origin">
+  <link rel="prefetch" href="https://p.superdesign.dev/draft/db9e740b-98df-4e32-b2e7-dd546d6908ad" as="document">
+  <link rel="prefetch" href="https://p.superdesign.dev/draft/f2aef2fe-695a-4b55-b658-4c8286973f62" as="document">
+  <link rel="prefetch" href="https://p.superdesign.dev/draft/067ea320-5936-481a-89f3-a00c342e0b66" as="document">
+  <link rel="prefetch" href="https://p.superdesign.dev/draft/2aea028b-f441-4da1-b157-d8472701332a" as="document">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F5F5F5;
+      color: #4D4D4D;
+    }
+    .brand-navy { color: #00365A; }
+    .brand-bg-navy { background-color: #00365A; }
+    .brand-red { color: #C41E3A; }
+    .brand-bg-red { background-color: #C41E3A; }
+    
+    @view-transition {
+      navigation: auto;
+    }
+
+    ::view-transition-old(main-nav),
+    ::view-transition-new(main-nav) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+
+    ::view-transition-old(main-content) {
+      animation: 0.25s ease-out both fade-out;
+    }
+    ::view-transition-new(main-content) {
+      animation: 0.25s ease-in 0.1s both fade-in;
+    }
+
+    @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #E5E7EB;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #D1D5DB;
+    }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen flex flex-col">
+    <!-- Persistent Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm" style="view-transition-name: main-nav">
+      <div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 brand-bg-navy flex items-center justify-center rounded-sm">
+            <span class="text-white font-black text-xl italic">IHS</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-bold tracking-tight brand-navy leading-none">IHS KENYA</span>
+            <span class="text-[10px] text-gray-400 font-medium uppercase tracking-widest">Admin Portal</span>
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="https://p.superdesign.dev/draft/f2aef2fe-695a-4b55-b658-4c8286973f62" id="nav-dashboard" class="text-sm font-medium text-gray-500 hover:text-navy-900">Dashboard</a>
+          <a href="https://p.superdesign.dev/draft/067ea320-5936-481a-89f3-a00c342e0b66" id="nav-inbox" class="text-sm font-medium text-gray-500 hover:text-navy-900">Submissions Inbox</a>
+          <a href="https://p.superdesign.dev/draft/8b1254b8-9a76-4b09-b44d-3e08c5a8c5e1" id="nav-detail" class="text-sm font-semibold brand-navy border-b-2 border-navy-900 py-7">Submission Detail</a>
+          <a href="https://p.superdesign.dev/draft/2aea028b-f441-4da1-b157-d8472701332a" id="nav-reports" class="text-sm font-medium text-gray-500 hover:text-navy-900">Reports & Analytics</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <div class="flex flex-col items-end">
+            <span class="text-sm font-bold brand-navy">James Mwangi</span>
+            <span class="text-[10px] text-gray-400 uppercase tracking-tighter">Compliance Officer</span>
+          </div>
+          <div class="w-10 h-10 rounded-full brand-bg-navy flex items-center justify-center text-white font-bold">
+            JM
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content: 3-Pane Layout -->
+    <main class="flex-1 flex overflow-hidden" style="view-transition-name: main-content">
+      
+      <!-- LEFT PANE: Supplier Summary -->
+      <aside class="w-80 bg-white border-r border-gray-100 flex flex-col flex-shrink-0">
+        <div class="p-6 overflow-y-auto custom-scrollbar flex-1">
+          <a href="https://p.superdesign.dev/draft/067ea320-5936-481a-89f3-a00c342e0b66" class="inline-flex items-center gap-2 text-xs font-bold brand-navy mb-6 hover:text-red-600 transition-colors">
+            <iconify-icon icon="lucide:arrow-left"></iconify-icon>
+            BACK TO INBOX
+          </a>
+
+          <div class="mb-8">
+            <h1 class="text-xl font-black brand-navy leading-tight">Kijani Infrastructure Ltd</h1>
+            <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-semibold">Ref: IHS-2024-8842</p>
+          </div>
+
+          <!-- SLA & Status -->
+          <div class="space-y-4 mb-8">
+            <div class="p-4 bg-orange-50 border border-orange-100 rounded-lg">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] font-bold text-orange-600 uppercase tracking-wider">SLA Countdown</span>
+                <iconify-icon icon="lucide:timer" class="text-orange-600"></iconify-icon>
+              </div>
+              <div class="text-2xl font-black text-orange-700">04:12:35</div>
+              <p class="text-[10px] text-orange-500 mt-1">Target resolution: Oct 24, 17:00</p>
+            </div>
+
+            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <span class="text-xs font-semibold text-gray-500">Current Status</span>
+              <span class="px-2 py-1 rounded text-[10px] font-bold bg-blue-100 text-blue-700 uppercase">Under Review</span>
+            </div>
+          </div>
+
+          <!-- Entity Info -->
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Organization Info</h4>
+              <div class="space-y-3">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-gray-400">Registration Number</span>
+                  <span class="text-sm font-semibold brand-navy">PVT-AAA-9218</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-gray-400">KRA PIN</span>
+                  <span class="text-sm font-semibold brand-navy">P051234567X</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-gray-400">VAT Registration</span>
+                  <span class="text-sm font-semibold brand-navy">0234567M</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Primary Contact</h4>
+              <div class="space-y-3">
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-gray-400">Full Name</span>
+                  <span class="text-sm font-semibold brand-navy">Sarah Omolo</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[11px] text-gray-400">Email Address</span>
+                  <span class="text-sm font-semibold text-blue-600 hover:underline cursor-pointer">s.omolo@kijani.co.ke</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Flags -->
+            <div>
+              <h4 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">System Alerts</h4>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 p-2 bg-red-50 text-red-700 rounded text-xs border border-red-100">
+                  <iconify-icon icon="lucide:alert-triangle"></iconify-icon>
+                  <span>Tax Clearance Expired</span>
+                </div>
+                <div class="flex items-center gap-2 p-2 bg-amber-50 text-amber-700 rounded text-xs border border-amber-100">
+                  <iconify-icon icon="lucide:info"></iconify-icon>
+                  <span>Name Mismatch (CR12 vs PIN)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CENTER PANE: Document Viewer -->
+      <section class="flex-1 bg-gray-200 flex flex-col">
+        <!-- Toolbar -->
+        <div class="h-12 bg-white border-b border-gray-100 px-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-bold brand-navy">KRA_Tax_Compliance_2024.pdf</span>
+            <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded font-medium">Page 1 of 2</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-1 border-r border-gray-100 pr-4">
+              <button class="p-1.5 hover:bg-gray-100 rounded"><iconify-icon icon="lucide:zoom-out"></iconify-icon></button>
+              <span class="text-xs font-medium w-12 text-center">100%</span>
+              <button class="p-1.5 hover:bg-gray-100 rounded"><iconify-icon icon="lucide:zoom-in"></iconify-icon></button>
+            </div>
+            <div class="flex items-center gap-1">
+              <button class="p-1.5 hover:bg-gray-100 rounded" title="Rotate"><iconify-icon icon="lucide:rotate-cw"></iconify-icon></button>
+              <button class="p-1.5 hover:bg-gray-100 rounded" title="Download"><iconify-icon icon="lucide:download"></iconify-icon></button>
+              <button class="p-1.5 hover:bg-gray-100 rounded" title="Print"><iconify-icon icon="lucide:printer"></iconify-icon></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Viewer Content Area -->
+        <div class="flex-1 flex overflow-hidden">
+          <!-- Thumbnails -->
+          <div class="w-32 bg-gray-300 overflow-y-auto custom-scrollbar p-3 space-y-3">
+            <div class="aspect-[3/4] bg-white border-2 border-red-600 shadow-sm rounded-sm p-1 cursor-pointer">
+              <div class="w-full h-full bg-gray-100 flex items-center justify-center text-[10px] text-gray-400">P1</div>
+            </div>
+            <div class="aspect-[3/4] bg-white border border-gray-400 opacity-60 hover:opacity-100 shadow-sm rounded-sm p-1 cursor-pointer transition-opacity">
+              <div class="w-full h-full bg-gray-100 flex items-center justify-center text-[10px] text-gray-400">P2</div>
+            </div>
+          </div>
+
+          <!-- Main View -->
+          <div class="flex-1 flex items-center justify-center p-8 overflow-auto">
+            <div class="w-[600px] h-[848px] bg-white shadow-2xl relative p-12">
+              <!-- Mock Document Content -->
+              <div class="absolute top-12 left-12">
+                <div class="flex items-center gap-2 mb-8">
+                  <div class="w-12 h-12 bg-gray-800 flex items-center justify-center">
+                    <iconify-icon icon="lucide:hexagon" class="text-white text-2xl"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 class="font-black text-sm tracking-tighter">KENYA REVENUE AUTHORITY</h3>
+                    <p class="text-[10px] font-bold">TAX COMPLIANCE CERTIFICATE</p>
+                  </div>
+                </div>
+                
+                <div class="space-y-6">
+                  <div class="border-b border-gray-200 pb-2">
+                    <p class="text-[8px] uppercase text-gray-400">Certificate Number</p>
+                    <p class="text-sm font-bold font-serif">KRA202401020304</p>
+                  </div>
+                  <div class="border-b border-gray-200 pb-2">
+                    <p class="text-[8px] uppercase text-gray-400">Name of Taxpayer</p>
+                    <p class="text-sm font-bold font-serif">KIJANI INFRASTRUCTURE LIMITED</p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-8">
+                    <div class="border-b border-gray-200 pb-2">
+                      <p class="text-[8px] uppercase text-gray-400">Date of Issue</p>
+                      <p class="text-sm font-bold font-serif">01 Jan 2024</p>
+                    </div>
+                    <div class="border-b border-gray-200 pb-2">
+                      <p class="text-[8px] uppercase text-gray-400">Expiry Date</p>
+                      <p class="text-sm font-bold font-serif text-red-600">01 Jan 2025</p>
+                    </div>
+                  </div>
+                  <div class="pt-12">
+                    <div class="w-32 h-32 border border-gray-200 bg-gray-50 flex items-center justify-center">
+                      <iconify-icon icon="lucide:qr-code" class="text-6xl text-gray-300"></iconify-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT PANE: Review Actions -->
+      <aside class="w-96 bg-white border-l border-gray-100 flex flex-col flex-shrink-0">
+        <div class="p-6 overflow-y-auto custom-scrollbar flex-1">
+          <h3 class="text-sm font-black brand-navy mb-6 flex items-center gap-2">
+            <iconify-icon icon="lucide:clipboard-check" class="text-lg"></iconify-icon>
+            COMPLIANCE CHECKLIST
+          </h3>
+
+          <!-- Checklist -->
+          <div class="space-y-2 mb-8">
+            <!-- Passed -->
+            <div class="flex items-center justify-between p-3 rounded-lg border border-green-100 bg-green-50/50">
+              <div class="flex items-center gap-3">
+                <iconify-icon icon="lucide:check-circle-2" class="text-green-600"></iconify-icon>
+                <span class="text-xs font-semibold">Business Registration (Cert)</span>
+              </div>
+              <button class="text-[10px] font-bold text-gray-400 hover:text-navy-900">VIEW</button>
+            </div>
+
+            <!-- Needs Check -->
+            <div class="flex items-center justify-between p-3 rounded-lg border border-navy-900 bg-navy-50">
+              <div class="flex items-center gap-3">
+                <iconify-icon icon="lucide:eye" class="brand-navy"></iconify-icon>
+                <span class="text-xs font-bold brand-navy">Tax Compliance Cert</span>
+              </div>
+              <span class="text-[10px] font-bold text-navy-600">READING</span>
+            </div>
+
+            <!-- Flagged -->
+            <div class="flex items-center justify-between p-3 rounded-lg border border-red-100 bg-red-50/50">
+              <div class="flex items-center gap-3">
+                <iconify-icon icon="lucide:alert-circle" class="text-red-600"></iconify-icon>
+                <span class="text-xs font-semibold text-red-700">CR12 Form (Current)</span>
+              </div>
+              <button class="text-[10px] font-bold text-red-600 hover:underline">REJECTED</button>
+            </div>
+
+            <!-- Missing -->
+            <div class="flex items-center justify-between p-3 rounded-lg border border-gray-100 bg-gray-50">
+              <div class="flex items-center gap-3">
+                <iconify-icon icon="lucide:circle" class="text-gray-300"></iconify-icon>
+                <span class="text-xs font-medium text-gray-400">Bank Reference Letter</span>
+              </div>
+              <span class="text-[10px] font-bold text-gray-400">MISSING</span>
+            </div>
+          </div>
+
+          <!-- Internal Notes -->
+          <div class="mb-8">
+            <label class="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Internal Evaluation Notes</label>
+            <textarea 
+              class="w-full h-32 p-3 bg-gray-50 border border-gray-200 rounded text-xs focus:outline-none focus:border-navy-900 focus:ring-1 focus:ring-navy-900 transition-all"
+              placeholder="Enter observations for audit trail..."
+            >Tax compliance document verified against KRA iTax portal. Verified. CR12 needs update as current version is older than 6 months.</textarea>
+          </div>
+
+          <!-- Quick Action Controls -->
+          <div class="flex flex-col gap-3">
+            <button class="w-full py-3 px-4 rounded border border-gray-200 text-xs font-bold brand-navy flex items-center justify-center gap-2 hover:bg-gray-50 transition-all">
+              <iconify-icon icon="lucide:mail" class="text-lg"></iconify-icon>
+              Email Supplier Clarification
+            </button>
+            <button class="w-full py-3 px-4 rounded border border-gray-200 text-xs font-bold brand-navy flex items-center justify-center gap-2 hover:bg-gray-50 transition-all">
+              <iconify-icon icon="lucide:history" class="text-lg"></iconify-icon>
+              View Audit History
+            </button>
+          </div>
+        </div>
+
+        <!-- Final Actions Sticky Bottom -->
+        <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-3">
+          <div class="grid grid-cols-2 gap-3">
+            <button class="py-4 px-2 rounded bg-white border border-red-600 text-red-600 text-xs font-bold hover:bg-red-50 transition-all">
+              REJECT APPLICATION
+            </button>
+            <button class="py-4 px-2 rounded bg-white border border-orange-600 text-orange-600 text-xs font-bold hover:bg-orange-50 transition-all">
+              CLARIFICATION REQ.
+            </button>
+          </div>
+          <button class="w-full py-4 rounded brand-bg-red text-white text-xs font-black shadow-lg shadow-red-900/20 hover:brightness-110 active:scale-[0.98] transition-all">
+            APPROVE PREQUALIFICATION
+          </button>
+        </div>
+      </aside>
+
+    </main>
+  </div>
+</body>
+</html>

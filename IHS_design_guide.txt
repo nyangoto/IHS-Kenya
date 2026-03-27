@@ -1,0 +1,341 @@
+Haiku 4.5
+
+
+help me create a design system and guide from this webpage i.e. color scheme and anything else. act as a UI/UX designer with over 15 YOE in the enterprise sector.
+
+
+
+
+11 steps
+
+
+
+IHS Kenya Design System & Brand Guide
+Executive Summary
+Based on my analysis of the IHS Kenya website as a senior UI/UX designer with 15+ years of enterprise experience, I've created a comprehensive design system that reflects their position as a forward-thinking, professional housing investment organization. The design demonstrates enterprise-grade sophistication with clear visual hierarchy and deliberate color psychology.
+
+1. COLOR PALETTE
+Primary Colors
+Color	Hex Value	RGB	Usage	Psychology
+IHS Navy Blue	
+#00365A	0, 54, 90	Headers, navigation, trust-building sections	Trust, stability, professionalism
+IHS Red	
+#C41E3A	196, 30, 58	CTA buttons, accent elements, brand emphasis	Action, urgency, commitment
+White	
+#FFFFFF	255, 255, 255	Backgrounds, text on colored sections, clarity	Cleanliness, transparency
+Light Gray	
+#F5F5F5	245, 245, 245	Secondary backgrounds, section dividers	Neutral, professional
+Secondary Colors
+Color	Hex Value	RGB	Usage
+Dusty Blue	
+#8FA4C1	143, 164, 193	Headings, section titles, softer emphasis
+Coral/Rose	
+#D99D99	217, 157, 153	Secondary section backgrounds (Investors section)
+Steel Blue	
+#5B7C99	91, 124, 153	Alternative section backgrounds (Developers section)
+Charcoal Gray	
+#4D4D4D	77, 77, 77	Body text, supporting content
+Medium Gray	
+#999999	153, 153, 153	Lighter text, labels, subtle elements
+Color Applications by Component
+Buttons:
+
+Primary CTA: IHS Red (
+#C41E3A) with white text
+Secondary CTA: White background with blue text/border
+Hover State: Darker red (
+#A01729)
+Disabled: Light gray (
+#D3D3D3)
+Text Hierarchy:
+
+Primary Headings: Navy Blue (
+#00365A)
+Secondary Headings: Dusty Blue (
+#8FA4C1)
+Body Text: Charcoal Gray (
+#4D4D4D)
+Supporting Text: Medium Gray (
+#999999)
+2. TYPOGRAPHY SYSTEM
+Font Family Hierarchy
+Primary Font: Sans-serif system stack (appears to be a modern, clean sans-serif)
+
+Recommended: Inter, Segoe UI, or similar humanist sans-serif for enterprise applications
+Type Scale
+Level	Usage	Size	Weight	Line Height	Letter Spacing
+H1	Page titles, hero sections	48px	700 (Bold)	1.2	-0.5px
+H2	Section headings	36px	600 (SemiBold)	1.3	0px
+H3	Subsection headings	28px	600 (SemiBold)	1.4	0px
+H4	Component headers, card titles	22px	600 (SemiBold)	1.4	0px
+Body Large	Primary content paragraphs	16px	400 (Regular)	1.6	0.3px
+Body Regular	Standard body text	14px	400 (Regular)	1.5	0.2px
+Body Small	Captions, labels, support text	12px	400 (Regular)	1.4	0.1px
+Button Text	All button labels	14px	600 (SemiBold)	1.5	0.5px
+Label/Tag	Form labels, badges	11px	500 (Medium)	1.3	0.8px
+Typography Rules
+Headings: Use Dusty Blue or Navy Blue, never lighter than 600 weight
+Body Text: Charcoal Gray at 14-16px with 1.5-1.6 line height for readability
+Contrast Ratio: Maintain minimum 4.5:1 for WCAG AA compliance
+All-caps: Reserved for labels, badges, and button text only
+Alignment: Headings justify (left-aligned), body text uses justified alignment for formal sections
+3. SPACING & LAYOUT SYSTEM
+Base Unit: 8px Grid
+All spacing follows an 8px modular scale for consistency across components.
+
+Scale	Value	Primary Use
+XS	4px	Micro-interactions, tight spacing
+S	8px	Internal padding in small components
+M	16px	Standard padding, margins between elements
+L	24px	Vertical spacing between sections
+XL	32px	Major section spacing
+2XL	48px	Hero spacing, large vertical gaps
+3XL	64px	Page margins, banner spacing
+Layout Principles
+Desktop (1200px+):
+
+Content max-width: 1200px
+Outer margins: 48px (left/right)
+Grid: 12 columns with 24px gutters
+Section padding: 64px (top/bottom)
+Tablet (768px-1199px):
+
+Content max-width: 100% with 32px padding
+Outer margins: 32px
+Grid: 8 columns with 20px gutters
+Section padding: 48px
+Mobile (< 768px):
+
+Full-width with 16px padding
+Single column layout
+Section padding: 32px (top/bottom)
+4. UI COMPONENTS
+Navigation Bar
+Desktop Navigation:
+
+Height: 80px (with logo)
+Background: White
+Logo: Left-aligned, approximately 56px height
+Navigation links: Navy Blue text, right-aligned
+Secondary nav bar below: Navy Blue background (
+#00365A), white text, 56px height
+Link spacing: 24px horizontal padding per link
+Mobile Navigation:
+
+Hamburger menu icon on right
+Slide-out drawer when activated
+Full-width menu items with 16px padding
+Hero Section
+Full-width image background with overlay
+Overlay opacity: 40-50% dark for text legibility
+Hero height: 400-500px
+Text positioning: Left-aligned, lower portion
+CTA button placement: Below headline
+Card Components
+Property Cards:
+
+Width: 100% (responsive, 3-column on desktop)
+Image height: 240px with cover crop
+Content padding: 16px
+Border radius: 4px (subtle, enterprise style)
+Shadow: Subtle elevation (0px 2px 8px rgba(0,0,0,0.1))
+Hover effect: +2px shadow, slight scale (1.02)
+Section Cards (Investors/Developers):
+
+Image background with semi-transparent overlay
+Heading: 36px, white text, bold
+Content: White text on 60% opacity background
+CTA Button: Contrasting color (white button on colored background)
+Min height: 300px
+Buttons
+Primary Button (CTA):
+
+Background: IHS Red (
+#C41E3A)
+Text: White, 14px SemiBold
+Padding: 14px 28px
+Border radius: 4px
+Hover: Darker red (
+#A01729)
+Focus: 2px outline in red, 4px offset
+Min width: 120px
+Secondary Button:
+
+Background: Transparent/White
+Border: 2px solid Navy Blue
+Text: Navy Blue, 14px SemiBold
+Padding: 12px 26px
+Border radius: 4px
+Hover: Navy Blue background with white text
+Button States:
+
+Default: Full opacity, interactive cursor
+Hover: Background/border darkens 10%
+Active: Background darkens 20%
+Disabled: 50% opacity, not-allowed cursor
+Statistics/Metrics Display
+Numbers: Large, 48-64px, Navy Blue, SemiBold
+Labels: 14px, Charcoal Gray, centered below number
+Container: Light gray background or transparent with border
+Spacing: 24px between stat groups
+Layout: 4 columns desktop, responsive
+5. FORM ELEMENTS
+Input Fields
+Background: White with Light Gray border (2px)
+Focus state: Navy Blue border (2px)
+Padding: 12px 16px
+Font: 14px, Regular
+Border radius: 4px
+Label: 12px SemiBold, Charcoal Gray, positioned above
+Placeholder: Medium Gray (
+#999999)
+Form Labels & Required Indicators
+Label size: 12px, 500 weight
+Color: Charcoal Gray (
+#4D4D4D)
+Required indicator: Red asterisk (*)
+Spacing below label: 6px
+6. IMAGERY & PHOTOGRAPHY
+Photography Style
+Subject: Real estate, sustainable housing, green architecture
+Tone: Aspirational yet authentic, professional
+Filter: Warm, natural lighting with slight saturation boost
+Composition: 16:9 aspect ratio preferred for hero images, 4:3 for cards
+Focus: Community, sustainability, modern design
+Image Overlays
+Dark overlays: 30-40% opacity for text contrast
+Gradient overlays: Navy to transparent, left to right
+Blur effects: Used sparingly for depth on hover states
+7. ELEVATION & SHADOWS
+Shadow System
+Level	CSS	Usage
+Subtle	0px 2px 8px rgba(0,0,0,0.1)	Cards at rest, subtle elements
+Elevated	0px 4px 16px rgba(0,0,0,0.15)	Cards on hover, modals
+High	0px 8px 24px rgba(0,0,0,0.2)	Dropdowns, popovers
+Maximum	0px 16px 32px rgba(0,0,0,0.25)	Modals, overlays
+8. INTERACTIVE STATES & ANIMATIONS
+Transition Timing
+Default: 300ms cubic-bezier(0.4, 0, 0.2, 1)
+Hover effects: 150ms
+Page transitions: 500ms
+Hover States
+Cards: +2px elevation, 1.02 scale
+Links: Color change + underline decoration
+Buttons: Background color shift, maintain border
+Focus States
+All interactive elements: 2px outline in Navy Blue
+Outline offset: 4px
+Applies to: Links, buttons, form fields, nav items
+9. RESPONSIVE BREAKPOINTS
+Mobile:     < 576px
+Tablet:     576px - 768px
+Desktop:    768px - 1200px
+Large:      1200px - 1920px
+XL Screen:  > 1920px
+Layout Adjustments by Breakpoint
+Mobile (<576px):
+
+Single column layouts
+Full-width buttons
+16px padding
+24px margins between sections
+Hamburger navigation
+Tablet (576-768px):
+
+2-column grids
+32px padding
+32px margins
+Drawer navigation
+Desktop (768px+):
+
+Multi-column grids (3-4 columns for cards)
+Full sidebar navigation
+48px+ padding
+64px section spacing
+10. BRAND VOICE IN DESIGN
+Visual Language
+Professional yet approachable: Enterprise rigor without coldness
+Trustworthy: Navy blue and white create stability
+Action-oriented: Red accents drive conversions
+Community-focused: Warm imagery of real people and places
+Sustainable: Green elements in photography reflect environmental commitment
+Dos and Don'ts
+✅ DO:
+
+Use generous whitespace for enterprise elegance
+Maintain strong color contrast
+Keep interactions smooth and purposeful
+Use real photography of actual properties
+Ensure all CTAs are highly visible
+❌ DON'T:
+
+Use busy patterns or textures
+Over-saturate colors
+Use decorative icons without purpose
+Make text small (minimum 14px body)
+Create confusing navigation hierarchies
+11. ACCESSIBILITY STANDARDS
+WCAG 2.1 Level AA: Minimum standard for all components
+Color Contrast: 4.5:1 for normal text, 3:1 for large text (18px+)
+Focus Indicators: Visible on all interactive elements
+Alt Text: Descriptive alt text for all images
+Keyboard Navigation: Full keyboard support
+Screen Readers: Proper semantic HTML and ARIA labels
+12. IMPLEMENTATION GUIDELINES
+Code Standards
+CSS: BEM naming convention (e.g., .button--primary)
+Spacing: CSS variables using 8px units (--space-s: 8px, --space-m: 16px)
+Colors: CSS variables for theming (--color-primary, --color-accent)
+Typography: Web-safe font stack with fallbacks
+Design Tokens (CSS Variables)
+css
+/* Colors */
+--color-navy: #00365A;
+--color-red: #C41E3A;
+--color-dusty-blue: #8FA4C1;
+--color-text-primary: #4D4D4D;
+
+/* Spacing */
+--space-xs: 4px;
+--space-s: 8px;
+--space-m: 16px;
+--space-l: 24px;
+
+/* Typography */
+--font-sans: 'Inter', 'Segoe UI', sans-serif;
+--font-size-body: 14px;
+--font-weight-regular: 400;
+--font-weight-semibold: 600;
+
+/* Transitions */
+--transition-default: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+13. COMPONENT LIBRARY STRUCTURE
+Essential Components to Build
+Navigation (Desktop & Mobile variants)
+Buttons (Primary, Secondary, states)
+Cards (Property, team member, content cards)
+Forms (Inputs, selects, radio buttons, checkboxes)
+Modals (Alerts, confirmations, dialogs)
+Typography (All heading and text styles)
+Statistics (Number displays with labels)
+Hero Section (Full-width with overlay)
+Testimonials (Quote cards)
+Breadcrumbs (Navigation aid)
+14. ENTERPRISE DESIGN PRINCIPLES APPLIED
+As someone with 15+ years in enterprise design, here's what I've identified as key to IHS's success:
+
+Trust Through Clarity: Navy blue establishes authority; clean layouts build confidence
+Action Through Color: Red buttons cut through noise; high conversion potential
+Professional Restraint: Limited palette and simple geometry feel sophisticated
+Accessibility-First: Enterprise users include diverse accessibility needs
+Scalability: System designed to expand without losing cohesion
+Performance: Clean design = faster load times, better user experience
+Data Hierarchy: Statistics sections prioritize metrics important to investors
+Clear CTAs: Multiple conversion paths (Investor Portal, Learn More buttons)
+15. FUTURE ENHANCEMENTS
+Dark Mode: Create inverted color tokens maintaining contrast ratios
+Animation Library: Micro-interactions for investment tracking dashboards
+Data Visualization: Charts and graphs following the color system
+Interactive Maps: Property location displays
+Investor Dashboard: Custom charts and reporting interfaces
+This design system provides a solid foundation for IHS Kenya's digital presence while maintaining enterprise professionalism and market trust. The system is intentionally flexible enough to scale across different property types and investor segments while maintaining visual cohesion.
