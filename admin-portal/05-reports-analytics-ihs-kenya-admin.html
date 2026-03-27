@@ -3,502 +3,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reports & Analytics | IHS Kenya Admin</title>
+  <title>Performance Analytics | IHS Kenya Admin</title>
+  <meta name="view-transition" content="same-origin">
+  <link rel="prefetch" href="02-ihs-kenya-admin-dashboard.html" as="document">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <meta name="view-transition" content="same-origin">
-  
-  <link rel="prefetch" href="https://p.superdesign.dev/draft/db9e740b-98df-4e32-b2e7-dd546d6908ad" as="document">
-  <link rel="prefetch" href="https://p.superdesign.dev/draft/f2aef2fe-695a-4b55-b658-4c8286973f62" as="document">
-  <link rel="prefetch" href="https://p.superdesign.dev/draft/067ea320-5936-481a-89f3-a00c342e0b66" as="document">
-  <link rel="prefetch" href="https://p.superdesign.dev/draft/8b1254b8-9a76-4b09-b44d-3e08c5a8c5e1" as="document">
-  <link rel="prefetch" href="https://p.superdesign.dev/draft/2aea028b-f441-4da1-b157-d8472701332a" as="document">
-
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #F5F5F5;
-    }
+    body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; }
     .brand-navy { color: #00365A; }
     .brand-bg-navy { background-color: #00365A; }
     .brand-red { color: #C41E3A; }
     .brand-bg-red { background-color: #C41E3A; }
-
-    /* View Transition Core Setup */
-    html {
-      background-color: #00365A;
-    }
-    @view-transition {
-      navigation: auto;
-    }
-    ::view-transition {
-      background-color: #F5F5F5;
-    }
-
-    /* Persistent Nav & Sidebar */
-    ::view-transition-old(sidebar),
-    ::view-transition-new(sidebar),
-    ::view-transition-old(header),
-    ::view-transition-new(header) {
-      animation: none;
-      mix-blend-mode: normal;
-    }
-
-    /* Dynamic Content Transition */
-    ::view-transition-old(main-content) {
-      animation: 0.25s ease-out both fade-out;
-    }
-    ::view-transition-new(main-content) {
-      animation: 0.25s ease-in 0.1s both fade-in;
-    }
-
-    @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
-    @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-
-    ::view-transition-old(root), ::view-transition-new(root) {
-      animation: none;
-      mix-blend-mode: normal;
-    }
-
+    .nav-active { background-color: rgba(255,255,255,0.1); border-left: 4px solid #C41E3A; }
+    .sidebar-item:hover { background-color: rgba(255,255,255,0.05); }
+    .card-shadow { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
     .donut-chart {
       background: conic-gradient(
         #00365A 0% 40%,
         #C41E3A 40% 65%,
         #5B7C99 65% 80%,
         #8FA4C1 80% 90%,
-        #E5E7EB 90% 100%
+        #E2E8F0 90% 100%
       );
       border-radius: 50%;
     }
-    
-    .chart-grid-line {
-      border-bottom: 1px solid #E5E7EB;
-    }
+    .chart-grid-line { border-bottom: 1px solid #E2E8F0; }
   </style>
 </head>
-<body>
-  <div class="min-h-screen flex overflow-hidden">
-    
-    <!-- Sidebar (Persistent) -->
-    <aside style="view-transition-name: sidebar" class="w-64 brand-bg-navy flex flex-col flex-shrink-0 z-20">
-      <div class="p-6 flex items-center gap-3">
-        <div class="w-10 h-10 bg-white flex items-center justify-center rounded">
-          <span class="brand-navy font-black text-xl italic">IHS</span>
+<body class="flex h-screen overflow-hidden">
+
+  <!-- INSTITUTIONAL SIDEBAR -->
+  <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
+    <div class="p-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto brightness-0 invert">
+        <div class="flex flex-col">
+          <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
         </div>
-        <div class="flex flex-col text-white">
-          <span class="text-xs font-bold tracking-tight leading-none uppercase">Kenya</span>
-          <span class="text-[8px] font-medium opacity-50 tracking-[0.2em] uppercase">Admin Portal</span>
+      </div>
+    </div>
+
+    <nav class="flex-1 mt-6 px-3 space-y-1">
+      <a href="02-ihs-kenya-admin-dashboard.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Operations Dashboard</span>
+      </a>
+      <a href="03-admin-portal-submissions-inbox.html" class="flex items-center justify-between px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <div class="flex items-center gap-3">
+          <iconify-icon icon="lucide:list-checks" class="text-xl"></iconify-icon>
+          <span class="text-sm font-semibold">Submission Pipeline</span>
+        </div>
+        <span class="bg-red-600 text-[10px] px-2 py-0.5 rounded-full font-bold text-white">14</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:archive" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Institutional Archive</span>
+      </a>
+      <a href="05-reports-analytics-ihs-kenya-admin.html" class="flex items-center gap-3 px-4 py-3 nav-active rounded-lg transition-all group">
+        <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold text-white">Performance Analytics</span>
+      </a>
+      <div class="pt-6 pb-2 px-4">
+        <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
+      </div>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-half" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Access Control</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">System Settings</span>
+      </a>
+    </nav>
+
+    <div class="p-4 border-t border-white/10 bg-black/5">
+      <div class="flex items-center gap-3 px-2">
+        <div class="w-9 h-9 rounded-full brand-bg-red flex items-center justify-center text-xs font-black ring-2 ring-white/10">PK</div>
+        <div class="flex flex-col min-w-0">
+          <span class="text-xs font-bold text-white truncate">Patrick Kamau</span>
+          <span class="text-[9px] text-blue-300 uppercase font-bold tracking-tight">Superuser Account</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+    <!-- TOP HEADER -->
+    <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 z-40">
+      <div class="flex items-center gap-4">
+        <h1 class="text-base font-bold brand-navy uppercase tracking-tight">Performance Analytics</h1>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2 text-slate-400">
+          <iconify-icon icon="lucide:calendar" class="text-lg"></iconify-icon>
+          <span class="text-xs font-semibold">Last 30 Days: Feb 24 &ndash; Mar 26, 2026</span>
         </div>
       </div>
 
-      <nav class="mt-8 flex-1 px-4 space-y-2">
-        <a href="https://p.superdesign.dev/draft/f2aef2fe-695a-4b55-b658-4c8286973f62" id="nav-dashboard" class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-          <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
-          <span class="text-sm font-semibold">Dashboard</span>
-        </a>
-        <a href="https://p.superdesign.dev/draft/067ea320-5936-481a-89f3-a00c342e0b66" id="nav-inbox" class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-          <iconify-icon icon="lucide:inbox" class="text-xl"></iconify-icon>
-          <span class="text-sm font-semibold">Submissions</span>
-        </a>
-        <a href="https://p.superdesign.dev/draft/2aea028b-f441-4da1-b157-d8472701332a" id="nav-reports" class="flex items-center gap-3 px-4 py-3 bg-white/10 text-white rounded-lg transition-all border-l-4 border-red-600">
-          <iconify-icon icon="lucide:bar-chart-3" class="text-xl"></iconify-icon>
-          <span class="text-sm font-semibold">Reports & Analytics</span>
-        </a>
-        <a href="#compliance" id="nav-compliance" class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-          <iconify-icon icon="lucide:shield-check" class="text-xl"></iconify-icon>
-          <span class="text-sm font-semibold">Compliance</span>
-        </a>
-        <div class="pt-4 pb-2 px-4">
-          <span class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Systems</span>
+      <div class="flex items-center gap-6">
+        <!-- Filters -->
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <select title="Time range filter" class="appearance-none bg-slate-50 border border-slate-200 pl-3 pr-8 py-1.5 rounded-lg text-xs font-bold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10 transition-all cursor-pointer">
+              <option selected>Last 30 Days</option>
+              <option>Last Quarter</option>
+              <option>Year to Date</option>
+              <option>Custom Range</option>
+            </select>
+            <iconify-icon icon="lucide:chevron-down" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></iconify-icon>
+          </div>
+          <div class="relative">
+            <select title="Category filter" class="appearance-none bg-slate-50 border border-slate-200 pl-3 pr-8 py-1.5 rounded-lg text-xs font-bold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10 transition-all cursor-pointer">
+              <option selected>All Categories</option>
+              <option>Civil Works</option>
+              <option>MEP Services</option>
+              <option>Supply Services</option>
+              <option>Interior Works</option>
+            </select>
+            <iconify-icon icon="lucide:chevron-down" class="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></iconify-icon>
+          </div>
         </div>
-        <a href="#settings" id="nav-settings" class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all">
-          <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
-          <span class="text-sm font-semibold">Settings</span>
-        </a>
-      </nav>
-
-      <div class="p-6 border-t border-white/5">
-        <a href="https://p.superdesign.dev/draft/db9e740b-98df-4e32-b2e7-dd546d6908ad" id="logout-link" class="flex items-center gap-3 text-white/50 hover:text-red-400 text-sm font-medium transition-colors">
-          <iconify-icon icon="lucide:log-out"></iconify-icon>
-          Sign Out
-        </a>
+        <div class="h-8 w-px bg-slate-200"></div>
+        <button type="button" title="Notifications" class="text-slate-400 hover:brand-navy transition-colors relative">
+          <iconify-icon icon="lucide:bell" class="text-2xl"></iconify-icon>
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-white">2</span>
+        </button>
       </div>
-    </aside>
+    </header>
 
-    <!-- Main Content Wrapper -->
-    <div class="flex-1 flex flex-col min-w-0">
-      
-      <!-- Top Header (Persistent) -->
-      <header style="view-transition-name: header" class="h-20 bg-white border-b border-gray-100 flex items-center justify-between px-8 z-10">
-        <div class="flex items-center gap-4">
-          <h2 class="text-xl font-bold brand-navy">Reports & Analytics</h2>
-          <span class="text-gray-300">|</span>
-          <div class="flex items-center gap-2 text-sm text-gray-500 font-medium">
-            <iconify-icon icon="lucide:calendar" class="text-lg"></iconify-icon>
-            Last 30 Days: Jan 15 - Feb 14, 2024
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
-          <div class="flex items-center gap-3 border-r border-gray-100 pr-6">
-            <button class="relative p-2 text-gray-400 hover:text-navy-900 transition-colors">
-              <iconify-icon icon="lucide:bell" class="text-xl"></iconify-icon>
-              <span class="absolute top-2 right-2 w-2 h-2 brand-bg-red rounded-full ring-2 ring-white"></span>
-            </button>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="text-right hidden sm:block">
-              <p class="text-xs font-bold brand-navy">James Omolo</p>
-              <p class="text-[10px] text-gray-400 uppercase">Compliance Head</p>
-            </div>
-            <div class="w-10 h-10 rounded-full brand-bg-navy flex items-center justify-center text-white font-bold text-sm">
-              JO
-            </div>
-          </div>
-        </div>
-      </header>
+    <!-- DASHBOARD CONTENT -->
+    <div class="flex-1 overflow-y-auto p-8 custom-scrollbar space-y-8">
 
-      <!-- Dynamic Content Area -->
-      <main style="view-transition-name: main-content" class="flex-1 overflow-y-auto p-8 space-y-8">
-        
-        <!-- Control Bar: Filters & Exports -->
-        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-          <div class="flex flex-wrap items-center gap-3">
-            <div class="relative">
-              <select class="appearance-none bg-gray-50 border border-gray-200 px-4 py-2 pr-10 rounded-lg text-sm font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-navy-900/10 transition-all">
-                <option>Last 30 Days</option>
-                <option>Last Quarter</option>
-                <option>Year to Date</option>
-                <option>Custom Range</option>
-              </select>
-              <iconify-icon icon="lucide:chevron-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
-            </div>
-            <div class="relative">
-              <select class="appearance-none bg-gray-50 border border-gray-200 px-4 py-2 pr-10 rounded-lg text-sm font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-navy-900/10 transition-all">
-                <option>All Categories</option>
-                <option>Civil Works</option>
-                <option>Engineering</option>
-                <option>IT & Telecom</option>
-              </select>
-              <iconify-icon icon="lucide:chevron-down" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></iconify-icon>
-            </div>
+      <!-- EXPORT ACTIONS -->
+      <div class="flex items-center justify-end gap-3">
+        <button type="button" class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold brand-navy hover:bg-slate-50 transition-all card-shadow">
+          <iconify-icon icon="lucide:download" class="text-base"></iconify-icon>
+          Export CSV
+        </button>
+        <button type="button" class="flex items-center gap-2 px-4 py-2 brand-bg-red text-white rounded-lg text-xs font-bold hover:brightness-110 transition-all shadow-md">
+          <iconify-icon icon="lucide:file-text" class="text-base"></iconify-icon>
+          Generate PDF Report
+        </button>
+      </div>
+
+      <!-- KPI STATS GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Total Prequalified</span>
+            <iconify-icon icon="lucide:users" class="text-blue-600 text-xl"></iconify-icon>
           </div>
-          <div class="flex items-center gap-3">
-            <button class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-bold brand-navy hover:bg-gray-50 transition-all">
-              <iconify-icon icon="lucide:download" class="text-lg"></iconify-icon>
-              Export CSV
-            </button>
-            <button class="flex items-center gap-2 px-4 py-2 brand-bg-red text-white rounded-lg text-sm font-bold hover:brightness-110 transition-all shadow-lg shadow-red-900/10">
-              <iconify-icon icon="lucide:file-text" class="text-lg"></iconify-icon>
-              Generate PDF Report
-            </button>
-          </div>
+          <div class="text-3xl font-black brand-navy">1,284</div>
+          <p class="text-[10px] mt-1 flex items-center gap-1">
+            <span class="text-emerald-600 font-bold flex items-center gap-0.5"><iconify-icon icon="lucide:trending-up"></iconify-icon> +12%</span>
+            <span class="text-slate-400">vs last period</span>
+          </p>
         </div>
 
-        <!-- KPI Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="p-2 bg-blue-50 text-blue-600 rounded-lg">
-                <iconify-icon icon="lucide:users" class="text-2xl"></iconify-icon>
-              </div>
-              <span class="text-green-600 text-xs font-bold flex items-center gap-1">
-                <iconify-icon icon="lucide:trending-up"></iconify-icon>
-                +12%
-              </span>
-            </div>
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Prequalified</p>
-            <h3 class="text-3xl font-extrabold brand-navy mt-1">1,284</h3>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Avg. Process Days</span>
+            <iconify-icon icon="lucide:clock" class="text-amber-500 text-xl"></iconify-icon>
           </div>
-          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="p-2 bg-orange-50 text-orange-600 rounded-lg">
-                <iconify-icon icon="lucide:clock" class="text-2xl"></iconify-icon>
-              </div>
-              <span class="text-red-600 text-xs font-bold flex items-center gap-1">
-                <iconify-icon icon="lucide:trending-up"></iconify-icon>
-                +2.4d
-              </span>
-            </div>
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Avg. Process Days</p>
-            <h3 class="text-3xl font-extrabold brand-navy mt-1">12.5</h3>
-          </div>
-          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="p-2 bg-green-50 text-green-600 rounded-lg">
-                <iconify-icon icon="lucide:check-circle" class="text-2xl"></iconify-icon>
-              </div>
-              <span class="text-green-600 text-xs font-bold flex items-center gap-1">
-                <iconify-icon icon="lucide:shield-check"></iconify-icon>
-                Target Met
-              </span>
-            </div>
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">SLA Compliance</p>
-            <h3 class="text-3xl font-extrabold brand-navy mt-1">94.2%</h3>
-          </div>
-          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
-              <div class="p-2 bg-red-50 text-red-600 rounded-lg">
-                <iconify-icon icon="lucide:alert-triangle" class="text-2xl"></iconify-icon>
-              </div>
-              <span class="text-orange-500 text-xs font-bold">High Volume</span>
-            </div>
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Expiring Soon</p>
-            <h3 class="text-3xl font-extrabold brand-navy mt-1">48</h3>
-          </div>
+          <div class="text-3xl font-black brand-navy">12.5</div>
+          <p class="text-[10px] mt-1 flex items-center gap-1">
+            <span class="text-red-600 font-bold flex items-center gap-0.5"><iconify-icon icon="lucide:trending-up"></iconify-icon> +2.4d</span>
+            <span class="text-slate-400">vs last period</span>
+          </p>
         </div>
 
-        <!-- Main Charts Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          <!-- Vendor Distribution -->
-          <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-8">
-              <div>
-                <h3 class="text-lg font-bold brand-navy">Vendor Distribution</h3>
-                <p class="text-sm text-gray-400">By primary service category</p>
-              </div>
-              <button class="text-gray-400 hover:text-navy-900"><iconify-icon icon="lucide:more-vertical"></iconify-icon></button>
-            </div>
-            <div class="flex flex-col md:flex-row items-center gap-12">
-              <div class="relative w-48 h-48 donut-chart flex items-center justify-center">
-                <div class="w-32 h-32 bg-white rounded-full flex flex-col items-center justify-center">
-                  <span class="text-2xl font-bold brand-navy">1,284</span>
-                  <span class="text-[10px] text-gray-400 uppercase">Total</span>
-                </div>
-              </div>
-              <div class="flex-1 grid grid-cols-1 gap-4 w-full">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full brand-bg-navy"></div>
-                    <span class="text-sm font-medium text-gray-600">Engineering</span>
-                  </div>
-                  <span class="text-sm font-bold brand-navy">40%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full brand-bg-red"></div>
-                    <span class="text-sm font-medium text-gray-600">Civil Works</span>
-                  </div>
-                  <span class="text-sm font-bold brand-navy">25%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
-                    <span class="text-sm font-medium text-gray-600">IT & Telecom</span>
-                  </div>
-                  <span class="text-sm font-bold brand-navy">15%</span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full bg-blue-200"></div>
-                    <span class="text-sm font-medium text-gray-600">Logistics</span>
-                  </div>
-                  <span class="text-sm font-bold brand-navy">10%</span>
-                </div>
-              </div>
-            </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">SLA Compliance</span>
+            <iconify-icon icon="lucide:shield-check" class="text-emerald-600 text-xl"></iconify-icon>
           </div>
+          <div class="text-3xl font-black brand-navy">94.2%</div>
+          <p class="text-[10px] mt-1">
+            <span class="text-emerald-600 font-bold">Target Met</span>
+          </p>
+        </div>
 
-          <!-- Processing Time Trends -->
-          <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-8">
-              <div>
-                <h3 class="text-lg font-bold brand-navy">Processing Time Trend</h3>
-                <p class="text-sm text-gray-400">Monthly avg. days per review</p>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 card-shadow border-l-4 border-l-red-600">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold text-red-600 uppercase tracking-widest">Expiring Soon</span>
+            <iconify-icon icon="lucide:alert-triangle" class="text-red-600 text-xl"></iconify-icon>
+          </div>
+          <div class="text-3xl font-black brand-navy">48</div>
+          <p class="text-[10px] text-red-600/70 mt-1 font-bold">Certificates Expiring &lt; 30 Days</p>
+        </div>
+      </div>
+
+      <!-- MAIN CHARTS GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Vendor Distribution -->
+        <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-sm font-black brand-navy uppercase tracking-tight">Vendor Distribution</h3>
+              <p class="text-xs text-slate-400 mt-1">By primary service category</p>
+            </div>
+            <button type="button" title="More options" class="text-slate-400 hover:brand-navy"><iconify-icon icon="lucide:more-vertical"></iconify-icon></button>
+          </div>
+          <div class="flex flex-col md:flex-row items-center gap-10">
+            <div class="relative w-44 h-44 donut-chart flex items-center justify-center flex-shrink-0">
+              <div class="w-28 h-28 bg-white rounded-full flex flex-col items-center justify-center">
+                <span class="text-2xl font-black brand-navy">1,284</span>
+                <span class="text-[10px] text-slate-400 uppercase font-bold">Total</span>
               </div>
-              <div class="flex items-center gap-4">
+            </div>
+            <div class="flex-1 grid grid-cols-1 gap-3 w-full">
+              <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="w-3 h-0.5 brand-bg-navy"></div>
-                  <span class="text-xs text-gray-400">Current</span>
+                  <div class="w-3 h-3 rounded-full brand-bg-navy"></div>
+                  <span class="text-xs font-medium text-slate-600">Civil Works</span>
                 </div>
+                <span class="text-xs font-bold brand-navy">40%</span>
+              </div>
+              <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="w-3 h-0.5 bg-gray-200"></div>
-                  <span class="text-xs text-gray-400">Prev. Year</span>
+                  <div class="w-3 h-3 rounded-full brand-bg-red"></div>
+                  <span class="text-xs font-medium text-slate-600">MEP Services</span>
                 </div>
+                <span class="text-xs font-bold brand-navy">25%</span>
               </div>
-            </div>
-            <!-- Mock Line Chart -->
-            <div class="h-48 relative flex items-end justify-between gap-1">
-              <!-- Background grid lines -->
-              <div class="absolute inset-0 flex flex-col justify-between">
-                <div class="chart-grid-line h-px w-full"></div>
-                <div class="chart-grid-line h-px w-full"></div>
-                <div class="chart-grid-line h-px w-full"></div>
-                <div class="chart-grid-line h-px w-full"></div>
-                <div class="chart-grid-line h-px w-full"></div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full" style="background-color: #5B7C99"></div>
+                  <span class="text-xs font-medium text-slate-600">Supply Services</span>
+                </div>
+                <span class="text-xs font-bold brand-navy">15%</span>
               </div>
-              <!-- Bars to mimic line trend heights -->
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[40%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-navy z-10"></div>
-                <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-gray-400">SEP</div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full" style="background-color: #8FA4C1"></div>
+                  <span class="text-xs font-medium text-slate-600">Interior Works</span>
+                </div>
+                <span class="text-xs font-bold brand-navy">10%</span>
               </div>
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[55%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-navy z-10"></div>
-                <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-gray-400">OCT</div>
-              </div>
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[45%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-navy z-10"></div>
-                <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-gray-400">NOV</div>
-              </div>
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[70%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-navy z-10"></div>
-                <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-gray-400">DEC</div>
-              </div>
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[60%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-navy z-10"></div>
-                <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-gray-400">JAN</div>
-              </div>
-              <div class="relative flex-1 group">
-                <div class="absolute bottom-[85%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full brand-bg-red z-10"></div>
-                <div class="w-0.5 brand-bg-red/10 mx-auto h-full"></div>
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-red-600">FEB</div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                  <span class="text-xs font-medium text-slate-600">Landscaping</span>
+                </div>
+                <span class="text-xs font-bold brand-navy">10%</span>
               </div>
             </div>
           </div>
-
-          <!-- SLA Compliance Details -->
-          <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-8">
-              <div>
-                <h3 class="text-lg font-bold brand-navy">SLA Compliance Rate</h3>
-                <p class="text-sm text-gray-400">Service Level Agreement status</p>
-              </div>
-              <div class="text-right">
-                <span class="text-3xl font-black brand-navy">94.2%</span>
-              </div>
-            </div>
-            <div class="space-y-6">
-              <div>
-                <div class="flex justify-between text-xs font-bold brand-navy mb-2">
-                  <span>FIRST RESPONSE (24HR)</span>
-                  <span>98%</span>
-                </div>
-                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div class="h-full brand-bg-navy w-[98%] rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs font-bold brand-navy mb-2">
-                  <span>DOC VALIDATION (72HR)</span>
-                  <span>91%</span>
-                </div>
-                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div class="h-full brand-bg-navy w-[91%] rounded-full"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-xs font-bold brand-navy mb-2">
-                  <span>FINAL APPROVAL (10 DAYS)</span>
-                  <span>88%</span>
-                </div>
-                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div class="h-full brand-bg-red w-[88%] rounded-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Approvals by Status Bar Chart -->
-          <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
-            <div class="flex items-center justify-between mb-8">
-              <div>
-                <h3 class="text-lg font-bold brand-navy">Submission Outcomes</h3>
-                <p class="text-sm text-gray-400">Prequalification results summary</p>
-              </div>
-              <div class="flex gap-2">
-                <span class="px-2 py-1 bg-green-50 text-green-700 text-[10px] font-bold rounded">High Approval Rate</span>
-              </div>
-            </div>
-            <div class="flex items-end justify-between h-48 gap-4 px-4">
-              <div class="flex-1 flex flex-col items-center gap-3">
-                <div class="w-full bg-green-500 rounded-t-lg h-[80%]"></div>
-                <span class="text-[10px] font-bold text-gray-400 uppercase">Approved</span>
-              </div>
-              <div class="flex-1 flex flex-col items-center gap-3">
-                <div class="w-full bg-orange-400 rounded-t-lg h-[35%]"></div>
-                <span class="text-[10px] font-bold text-gray-400 uppercase">Conditional</span>
-              </div>
-              <div class="flex-1 flex flex-col items-center gap-3">
-                <div class="w-full brand-bg-red rounded-t-lg h-[15%]"></div>
-                <span class="text-[10px] font-bold text-gray-400 uppercase">Rejected</span>
-              </div>
-              <div class="flex-1 flex flex-col items-center gap-3">
-                <div class="w-full brand-bg-navy rounded-t-lg h-[55%]"></div>
-                <span class="text-[10px] font-bold text-gray-400 uppercase">In Review</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Recent Activity Logs Snippet -->
-        <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-          <div class="p-6 border-b border-gray-100 flex justify-between items-center">
-            <h3 class="text-lg font-bold brand-navy">Report Generation History</h3>
-            <a href="#" class="text-sm font-bold brand-navy hover:underline underline-offset-4">View Full Logs</a>
+        <!-- Processing Time Trends -->
+        <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-sm font-black brand-navy uppercase tracking-tight">Processing Time Trend</h3>
+              <p class="text-xs text-slate-400 mt-1">Monthly avg. days per review</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-0.5 brand-bg-navy"></div>
+                <span class="text-[10px] text-slate-400 font-bold">Current</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-0.5 bg-slate-200"></div>
+                <span class="text-[10px] text-slate-400 font-bold">Prev. Year</span>
+              </div>
+            </div>
           </div>
-          <table class="w-full text-left">
-            <thead class="bg-gray-50 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-              <tr>
-                <th class="px-6 py-4">Report Type</th>
-                <th class="px-6 py-4">Generated By</th>
-                <th class="px-6 py-4">Date & Time</th>
-                <th class="px-6 py-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100">
-              <tr class="hover:bg-gray-50 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <iconify-icon icon="lucide:file-bar-chart" class="text-lg brand-navy"></iconify-icon>
-                    <span class="text-sm font-semibold brand-navy">Monthly Compliance Audit - Feb 2024</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-sm text-gray-500">System Automator</td>
-                <td class="px-6 py-4 text-sm text-gray-500">Today, 08:30 AM</td>
-                <td class="px-6 py-4 text-right">
-                  <button class="text-navy-900 hover:text-red-600 transition-colors"><iconify-icon icon="lucide:download" class="text-lg"></iconify-icon></button>
-                </td>
-              </tr>
-              <tr class="hover:bg-gray-50 transition-colors">
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-3">
-                    <iconify-icon icon="lucide:pie-chart" class="text-lg brand-navy"></iconify-icon>
-                    <span class="text-sm font-semibold brand-navy">Vendor Category Breakdown (Q1)</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 text-sm text-gray-500">James Omolo</td>
-                <td class="px-6 py-4 text-sm text-gray-500">Yesterday, 04:15 PM</td>
-                <td class="px-6 py-4 text-right">
-                  <button class="text-navy-900 hover:text-red-600 transition-colors"><iconify-icon icon="lucide:download" class="text-lg"></iconify-icon></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- Mock Line Chart -->
+          <div class="h-48 relative flex items-end justify-between gap-1 pt-4">
+            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+              <div class="chart-grid-line h-px w-full"></div>
+              <div class="chart-grid-line h-px w-full"></div>
+              <div class="chart-grid-line h-px w-full"></div>
+              <div class="chart-grid-line h-px w-full"></div>
+              <div class="chart-grid-line h-px w-full"></div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[40%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-navy z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">OCT</div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[55%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-navy z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">NOV</div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[45%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-navy z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">DEC</div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[70%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-navy z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">JAN</div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[60%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-navy z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-navy/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">FEB</div>
+            </div>
+            <div class="relative flex-1 group">
+              <div class="absolute bottom-[85%] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full brand-bg-red z-10 ring-2 ring-white"></div>
+              <div class="w-0.5 brand-bg-red/10 mx-auto h-full"></div>
+              <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-red-600">MAR</div>
+            </div>
+          </div>
         </div>
 
-      </main>
-
-      <!-- Footer -->
-      <footer class="bg-white border-t border-gray-100 py-4 px-8 flex justify-between items-center text-[10px] text-gray-400 font-medium uppercase tracking-widest">
-        <span>© 2024 IHS Kenya Ltd • Operations Portal</span>
-        <div class="flex gap-6">
-          <a href="#" class="hover:text-navy-900">Security Policy</a>
-          <a href="#" class="hover:text-navy-900">User Logs</a>
-          <span class="text-gray-200">v2.4.1</span>
+        <!-- SLA Compliance Details -->
+        <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-sm font-black brand-navy uppercase tracking-tight">SLA Compliance Rate</h3>
+              <p class="text-xs text-slate-400 mt-1">Service Level Agreement status</p>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl font-black brand-navy">94.2%</span>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between text-[10px] font-black brand-navy mb-2 uppercase tracking-tighter">
+                <span>First Response (24hr)</span>
+                <span>98%</span>
+              </div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full brand-bg-navy rounded-full" style="width: 98%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[10px] font-black brand-navy mb-2 uppercase tracking-tighter">
+                <span>Doc Validation (72hr)</span>
+                <span>91%</span>
+              </div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full brand-bg-navy rounded-full" style="width: 91%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[10px] font-black brand-navy mb-2 uppercase tracking-tighter">
+                <span>Final Approval (10 Days)</span>
+                <span>88%</span>
+              </div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full brand-bg-red rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </footer>
+
+        <!-- Submission Outcomes Bar Chart -->
+        <div class="bg-white p-8 rounded-xl border border-slate-200 card-shadow">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-sm font-black brand-navy uppercase tracking-tight">Submission Outcomes</h3>
+              <p class="text-xs text-slate-400 mt-1">Prequalification results summary</p>
+            </div>
+            <span class="px-2 py-1 bg-emerald-50 text-emerald-700 text-[9px] font-black rounded border border-emerald-100 uppercase">High Approval Rate</span>
+          </div>
+          <div class="flex items-end justify-between h-48 gap-4 px-4">
+            <div class="flex-1 flex flex-col items-center gap-3">
+              <span class="text-xs font-black brand-navy">68%</span>
+              <div class="w-full bg-emerald-500 rounded-t-lg" style="height: 80%"></div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">Approved</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-3">
+              <span class="text-xs font-black brand-navy">14%</span>
+              <div class="w-full bg-amber-400 rounded-t-lg" style="height: 35%"></div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">Conditional</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-3">
+              <span class="text-xs font-black brand-navy">6%</span>
+              <div class="w-full brand-bg-red rounded-t-lg" style="height: 15%"></div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">Rejected</span>
+            </div>
+            <div class="flex-1 flex flex-col items-center gap-3">
+              <span class="text-xs font-black brand-navy">12%</span>
+              <div class="w-full brand-bg-navy rounded-t-lg" style="height: 55%"></div>
+              <span class="text-[10px] font-bold text-slate-400 uppercase">In Review</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- REPORT GENERATION HISTORY -->
+      <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
+        <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+          <h3 class="text-sm font-black brand-navy uppercase tracking-tight">Report Generation History</h3>
+          <a href="#" class="text-xs font-bold brand-navy hover:underline underline-offset-4">View Full Logs</a>
+        </div>
+        <table class="w-full text-left">
+          <thead class="bg-slate-50 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+            <tr>
+              <th class="px-6 py-4">Report Type</th>
+              <th class="px-6 py-4">Generated By</th>
+              <th class="px-6 py-4">Date &amp; Time</th>
+              <th class="px-6 py-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <iconify-icon icon="lucide:file-bar-chart" class="text-lg brand-navy"></iconify-icon>
+                  <span class="text-sm font-semibold brand-navy">Monthly Compliance Audit &mdash; Mar 2026</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-slate-500">System Automator</td>
+              <td class="px-6 py-4 text-sm text-slate-500">Today, 08:30 AM</td>
+              <td class="px-6 py-4 text-right">
+                <button type="button" title="Download report" class="brand-navy hover:text-red-600 transition-colors"><iconify-icon icon="lucide:download" class="text-lg"></iconify-icon></button>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <iconify-icon icon="lucide:pie-chart" class="text-lg brand-navy"></iconify-icon>
+                  <span class="text-sm font-semibold brand-navy">Vendor Category Breakdown (Q1 2026)</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-slate-500">Patrick Kamau</td>
+              <td class="px-6 py-4 text-sm text-slate-500">Yesterday, 04:15 PM</td>
+              <td class="px-6 py-4 text-right">
+                <button type="button" title="Download report" class="brand-navy hover:text-red-600 transition-colors"><iconify-icon icon="lucide:download" class="text-lg"></iconify-icon></button>
+              </td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <iconify-icon icon="lucide:shield-check" class="text-lg brand-navy"></iconify-icon>
+                  <span class="text-sm font-semibold brand-navy">SLA Compliance Report &mdash; Feb 2026</span>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-sm text-slate-500">System Automator</td>
+              <td class="px-6 py-4 text-sm text-slate-500">Mar 1, 2026, 06:00 AM</td>
+              <td class="px-6 py-4 text-right">
+                <button type="button" title="Download report" class="brand-navy hover:text-red-600 transition-colors"><iconify-icon icon="lucide:download" class="text-lg"></iconify-icon></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
-  </div>
+  </main>
+
 </body>
 </html>
