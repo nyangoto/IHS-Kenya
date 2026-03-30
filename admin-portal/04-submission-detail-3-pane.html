@@ -174,7 +174,13 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="text-[11px] text-slate-400">NCA Classification</span>
-                  <span class="text-sm font-semibold brand-navy">NCA 1 (Buildings) &bull; 15 Years</span>
+                  <span class="text-sm font-semibold brand-navy">NCA 1 (Buildings)</span>
+                </div>
+                <div class="flex items-center gap-2 pt-1">
+                  <span class="px-2.5 py-1 bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-black rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                    <iconify-icon icon="lucide:briefcase" class="text-[11px]"></iconify-icon>
+                    15 Years Experience
+                  </span>
                 </div>
               </div>
             </div>
@@ -320,123 +326,185 @@
 
       <!-- RIGHT PANE: Review Actions -->
       <aside class="w-[360px] bg-white border-l border-slate-100 flex flex-col flex-shrink-0">
-        <div class="p-6 overflow-y-auto custom-scrollbar flex-1">
-          <h3 class="text-sm font-black brand-navy mb-6 flex items-center gap-2 uppercase tracking-tight">
-            <iconify-icon icon="lucide:clipboard-check" class="text-lg"></iconify-icon>
-            Compliance Checklist
-          </h3>
 
-          <!-- Checklist Items -->
-          <div class="space-y-2 mb-8">
-            <!-- Passed -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600"></iconify-icon>
-                <span class="text-xs font-semibold text-slate-700">Business Registration (Cert)</span>
-              </div>
-              <button type="button" class="text-[10px] font-bold text-slate-400 hover:brand-navy">VIEW</button>
-            </div>
+        <!-- Action Buttons Row -->
+        <div class="px-4 py-3 border-b border-slate-100 flex items-center gap-2">
+          <button type="button" onclick="openEmailPopover()" class="flex-1 py-2 rounded-lg border border-slate-200 text-xs font-bold brand-navy flex items-center justify-center gap-1.5 hover:bg-slate-50 transition-all">
+            <iconify-icon icon="lucide:mail" class="text-sm"></iconify-icon>
+            Email Contractor
+          </button>
+          <button type="button" onclick="openAuditSlideOver()" class="flex-1 py-2 rounded-lg border border-slate-200 text-xs font-bold brand-navy flex items-center justify-center gap-1.5 hover:bg-slate-50 transition-all">
+            <iconify-icon icon="lucide:history" class="text-sm"></iconify-icon>
+            View Audit History
+          </button>
+        </div>
 
-            <!-- Passed -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600"></iconify-icon>
-                <span class="text-xs font-semibold text-slate-700">NCA Registration Certificate</span>
-              </div>
-              <button type="button" class="text-[10px] font-bold text-slate-400 hover:brand-navy">VIEW</button>
-            </div>
+        <!-- Collapsible Sections -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar divide-y divide-slate-100">
 
-            <!-- Currently Viewing -->
-            <div class="flex items-center justify-between p-3 rounded-lg border-2 border-blue-300 bg-blue-50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:eye" class="text-blue-600"></iconify-icon>
-                <span class="text-xs font-bold text-blue-800">Tax Compliance Cert (TCC)</span>
-              </div>
-              <span class="text-[10px] font-bold text-blue-600 uppercase">Reading</span>
-            </div>
-
-            <!-- Flagged -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-red-100 bg-red-50/50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:alert-circle" class="text-red-600"></iconify-icon>
-                <span class="text-xs font-semibold text-red-700">CR12 Form (Current)</span>
-              </div>
-              <span class="text-[10px] font-bold text-red-600 uppercase">Rejected</span>
-            </div>
-
-            <!-- Passed -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600"></iconify-icon>
-                <span class="text-xs font-semibold text-slate-700">Financial Statements (2023)</span>
-              </div>
-              <button type="button" class="text-[10px] font-bold text-slate-400 hover:brand-navy">VIEW</button>
-            </div>
-
-            <!-- Pending -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:circle" class="text-slate-300"></iconify-icon>
-                <span class="text-xs font-medium text-slate-400">Bank Reference Letter</span>
-              </div>
-              <span class="text-[10px] font-bold text-slate-400 uppercase">Missing</span>
-            </div>
-
-            <!-- Pending -->
-            <div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50">
-              <div class="flex items-center gap-3">
-                <iconify-icon icon="lucide:circle" class="text-slate-300"></iconify-icon>
-                <span class="text-xs font-medium text-slate-400">Insurance Certificate</span>
-              </div>
-              <span class="text-[10px] font-bold text-slate-400 uppercase">Pending</span>
-            </div>
-          </div>
-
-          <!-- Compliance Score -->
-          <div class="p-4 bg-slate-50 rounded-lg border border-slate-100 mb-6">
-            <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Compliance Score</span>
-              <span class="text-lg font-black brand-navy">57%</span>
-            </div>
-            <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
-              <div class="h-full bg-amber-500 rounded-full" style="width: 57%"></div>
-            </div>
-            <p class="text-[10px] text-slate-400 mt-2">4 of 7 documents verified</p>
-          </div>
-
-          <!-- Internal Notes -->
-          <div class="mb-6">
-            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Internal Evaluation Notes</label>
-            <textarea
-              class="w-full h-28 p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all resize-none"
-              placeholder="Enter observations for audit trail..."
-            >Tax compliance document verified against KRA iTax portal. Verified. CR12 needs update as current version is older than 6 months.</textarea>
-          </div>
-
-          <!-- Quick Action Controls -->
-          <div class="flex flex-col gap-2">
-            <button type="button" class="w-full py-2.5 px-4 rounded-lg border border-slate-200 text-xs font-bold brand-navy flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
-              <iconify-icon icon="lucide:mail" class="text-base"></iconify-icon>
-              Email Supplier Clarification
+          <!-- Section 1: Compliance Documents (collapsed) -->
+          <div>
+            <button type="button" onclick="toggleSection('compliance')" class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition-colors">
+              <span class="text-xs font-black brand-navy uppercase tracking-tight flex items-center gap-2">
+                <iconify-icon icon="lucide:folder-check" class="text-sm"></iconify-icon>
+                Compliance Documents
+                <span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 text-[9px] font-black rounded ml-1">57%</span>
+              </span>
+              <iconify-icon icon="lucide:chevron-right" class="chevron-rotate collapsed text-slate-400 text-sm" id="chevron-compliance"></iconify-icon>
             </button>
-            <button type="button" class="w-full py-2.5 px-4 rounded-lg border border-slate-200 text-xs font-bold brand-navy flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
-              <iconify-icon icon="lucide:history" class="text-base"></iconify-icon>
-              View Audit History
-            </button>
+            <div class="collapsible-body collapsed" id="body-compliance" style="max-height:0">
+              <div class="px-5 pb-5 space-y-2">
+                <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600 text-sm"></iconify-icon>
+                    <span class="text-xs font-semibold text-slate-700">Business Registration (Cert)</span>
+                  </div>
+                  <button type="button" class="text-[10px] font-bold text-slate-400 hover:text-blue-600">VIEW</button>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600 text-sm"></iconify-icon>
+                    <span class="text-xs font-semibold text-slate-700">NCA Registration Certificate</span>
+                  </div>
+                  <button type="button" class="text-[10px] font-bold text-slate-400 hover:text-blue-600">VIEW</button>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border-2 border-blue-300 bg-blue-50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:eye" class="text-blue-600 text-sm"></iconify-icon>
+                    <span class="text-xs font-bold text-blue-800">Tax Compliance Cert (TCC)</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-blue-600 uppercase">Viewing</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border border-red-100 bg-red-50/50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:alert-circle" class="text-red-600 text-sm"></iconify-icon>
+                    <span class="text-xs font-semibold text-red-700">CR12 Form (Current)</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-red-600 uppercase">Flagged</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border border-emerald-100 bg-emerald-50/50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:check-circle-2" class="text-emerald-600 text-sm"></iconify-icon>
+                    <span class="text-xs font-semibold text-slate-700">Financial Statements (2023)</span>
+                  </div>
+                  <button type="button" class="text-[10px] font-bold text-slate-400 hover:text-blue-600">VIEW</button>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:circle" class="text-slate-300 text-sm"></iconify-icon>
+                    <span class="text-xs font-medium text-slate-400">NCA Annual License</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">Missing</span>
+                </div>
+                <div class="flex items-center justify-between p-3 rounded-lg border border-slate-100 bg-slate-50">
+                  <div class="flex items-center gap-2.5">
+                    <iconify-icon icon="lucide:circle" class="text-slate-300 text-sm"></iconify-icon>
+                    <span class="text-xs font-medium text-slate-400">KRA PIN Certificate</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-slate-400 uppercase">Pending</span>
+                </div>
+                <div class="mt-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Compliance Score</span>
+                    <span class="text-sm font-black brand-navy">57%</span>
+                  </div>
+                  <div class="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                    <div class="h-full bg-amber-500 rounded-full" style="width:57%"></div>
+                  </div>
+                  <p class="text-[10px] text-slate-400 mt-1.5">4 of 7 documents verified</p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Section 2: Project References (expanded) -->
+          <div>
+            <button type="button" onclick="toggleSection('refs')" class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition-colors">
+              <span class="text-xs font-black brand-navy uppercase tracking-tight flex items-center gap-2">
+                <iconify-icon icon="lucide:hard-hat" class="text-sm"></iconify-icon>
+                Project References
+                <span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] font-black rounded ml-1">3</span>
+              </span>
+              <iconify-icon icon="lucide:chevron-right" class="chevron-rotate text-slate-400 text-sm" id="chevron-refs"></iconify-icon>
+            </button>
+            <div class="collapsible-body" id="body-refs" style="max-height:1000px">
+              <div class="px-5 pb-5 space-y-3">
+                <!-- Ref 1 -->
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div class="flex items-start justify-between mb-1">
+                    <span class="text-xs font-bold brand-navy leading-tight">Greenfield Residential Estate Ph.2</span>
+                    <span class="text-[9px] font-black text-emerald-700 bg-emerald-50 border border-emerald-100 px-1.5 py-0.5 rounded uppercase ml-2 flex-shrink-0">Main</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1.5 text-[10px] text-slate-400 font-medium">
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:building-2"></iconify-icon>NHC Kenya</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:map-pin"></iconify-icon>Nairobi</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:calendar"></iconify-icon>2023</span>
+                  </div>
+                  <div class="mt-1.5 text-[10px] font-bold brand-navy">KES 280M</div>
+                </div>
+                <!-- Ref 2 -->
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div class="flex items-start justify-between mb-1">
+                    <span class="text-xs font-bold brand-navy leading-tight">Mombasa Port Access Road</span>
+                    <span class="text-[9px] font-black text-blue-700 bg-blue-50 border border-blue-100 px-1.5 py-0.5 rounded uppercase ml-2 flex-shrink-0">JV</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1.5 text-[10px] text-slate-400 font-medium">
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:building-2"></iconify-icon>KPA</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:map-pin"></iconify-icon>Mombasa</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:calendar"></iconify-icon>2022</span>
+                  </div>
+                  <div class="mt-1.5 text-[10px] font-bold brand-navy">KES 520M</div>
+                </div>
+                <!-- Ref 3 -->
+                <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <div class="flex items-start justify-between mb-1">
+                    <span class="text-xs font-bold brand-navy leading-tight">Kisumu Lakeside Commercial</span>
+                    <span class="text-[9px] font-black text-emerald-700 bg-emerald-50 border border-emerald-100 px-1.5 py-0.5 rounded uppercase ml-2 flex-shrink-0">Main</span>
+                  </div>
+                  <div class="flex items-center gap-3 mt-1.5 text-[10px] text-slate-400 font-medium">
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:building-2"></iconify-icon>Private Client</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:map-pin"></iconify-icon>Kisumu</span>
+                    <span class="flex items-center gap-1"><iconify-icon icon="lucide:calendar"></iconify-icon>2024</span>
+                  </div>
+                  <div class="mt-1.5 text-[10px] font-bold brand-navy">KES 190M</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Internal Notes (collapsed) -->
+          <div>
+            <button type="button" onclick="toggleSection('notes')" class="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-slate-50 transition-colors">
+              <span class="text-xs font-black brand-navy uppercase tracking-tight flex items-center gap-2">
+                <iconify-icon icon="lucide:sticky-note" class="text-sm"></iconify-icon>
+                Internal Notes
+              </span>
+              <iconify-icon icon="lucide:chevron-right" class="chevron-rotate collapsed text-slate-400 text-sm" id="chevron-notes"></iconify-icon>
+            </button>
+            <div class="collapsible-body collapsed" id="body-notes" style="max-height:0">
+              <div class="px-5 pb-5">
+                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Evaluation Notes (Audit Trail)</label>
+                <textarea
+                  class="w-full h-28 p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all resize-none"
+                  placeholder="Enter observations for audit trail..."
+                >Tax compliance verified via KRA iTax portal. CR12 needs update — current version older than 6 months. Recommend clarification request before proceeding.</textarea>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Final Actions Sticky Bottom -->
-        <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-3">
-          <div class="grid grid-cols-2 gap-3">
-            <button type="button" class="py-3.5 px-2 rounded-lg bg-white border border-red-200 text-red-600 text-xs font-bold hover:bg-red-50 transition-all">
+        <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-2.5">
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" onclick="openConfirmDialog('reject')" class="py-3 px-2 rounded-lg bg-red-600 text-white text-xs font-bold hover:brightness-110 transition-all">
               REJECT
             </button>
-            <button type="button" class="py-3.5 px-2 rounded-lg bg-white border border-amber-200 text-amber-600 text-xs font-bold hover:bg-amber-50 transition-all">
+            <button type="button" onclick="openConfirmDialog('clarify')" class="py-3 px-2 rounded-lg bg-white border border-blue-200 text-blue-600 text-xs font-bold hover:bg-blue-50 transition-all">
               CLARIFICATION
             </button>
           </div>
-          <button type="button" class="w-full py-3.5 rounded-lg brand-bg-red text-white text-xs font-black shadow-lg shadow-red-900/20 hover:brightness-110 active:scale-[0.98] transition-all uppercase tracking-wider">
+          <button type="button" onclick="openConfirmDialog('approve')" class="w-full py-3.5 rounded-lg bg-green-600 text-white text-xs font-black shadow-lg shadow-green-900/20 hover:brightness-110 active:scale-[0.98] transition-all uppercase tracking-wider">
             Approve Prequalification
           </button>
         </div>
@@ -444,6 +512,164 @@
 
     </main>
   </div>
+
+  <!-- AUDIT HISTORY SLIDE-OVER -->
+  <div class="slide-over-backdrop" id="audit-backdrop" onclick="closeAuditSlideOver()"></div>
+  <div class="slide-over-panel" id="audit-panel">
+    <div class="flex items-center justify-between p-5 border-b border-slate-100">
+      <h3 class="text-sm font-black brand-navy uppercase tracking-tight flex items-center gap-2">
+        <iconify-icon icon="lucide:history" class="text-base"></iconify-icon>
+        Audit History
+      </h3>
+      <button type="button" onclick="closeAuditSlideOver()" class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
+        <iconify-icon icon="lucide:x" class="text-slate-400"></iconify-icon>
+      </button>
+    </div>
+    <div class="overflow-y-auto custom-scrollbar h-full p-5 space-y-3 pb-24">
+      <div class="flex gap-3">
+        <div class="w-1 bg-blue-200 rounded-full flex-shrink-0 self-stretch"></div>
+        <div class="flex-1 pb-3">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold brand-navy">Status changed: Under Review</span>
+            <span class="text-[10px] text-slate-400">26 Mar, 09:14</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Patrick Kamau assigned submission for review</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="w-1 bg-amber-200 rounded-full flex-shrink-0 self-stretch"></div>
+        <div class="flex-1 pb-3">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold brand-navy">System Alert: TCC Expired</span>
+            <span class="text-[10px] text-slate-400">26 Mar, 09:12</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Automated check flagged TCC expiry date: 01 Jan 2025</p>
+        </div>
+      </div>
+      <div class="flex gap-3">
+        <div class="w-1 bg-slate-200 rounded-full flex-shrink-0 self-stretch"></div>
+        <div class="flex-1 pb-3">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold brand-navy">Submission Received</span>
+            <span class="text-[10px] text-slate-400">24 Oct 2024</span>
+          </div>
+          <p class="text-[11px] text-slate-500">Portal submission by Kijani Infrastructure Ltd</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL POPOVER -->
+  <div class="email-popover" id="email-popover">
+    <div class="flex items-center justify-between px-4 py-3 bg-slate-800 rounded-t-xl">
+      <span class="text-xs font-bold text-white flex items-center gap-2">
+        <iconify-icon icon="lucide:mail" class="text-sm"></iconify-icon>
+        New Message — Kijani Infrastructure Ltd
+      </span>
+      <button type="button" onclick="closeEmailPopover()" class="p-1 hover:bg-white/10 rounded text-slate-300 hover:text-white transition-colors">
+        <iconify-icon icon="lucide:x"></iconify-icon>
+      </button>
+    </div>
+    <div class="p-4 space-y-3">
+      <div class="flex items-center gap-2 text-[10px] text-slate-400 border-b border-slate-100 pb-3">
+        <span class="font-bold uppercase">To:</span>
+        <span class="font-semibold">s.omolo@kijani.co.ke</span>
+      </div>
+      <div>
+        <input type="text" placeholder="Subject" value="Clarification Required — IHS-2024-8756"
+          class="w-full text-xs p-2 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all">
+      </div>
+      <div>
+        <textarea class="w-full h-24 text-xs p-2 bg-slate-50 border border-slate-200 rounded-lg resize-none focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400 transition-all" placeholder="Message body...">Dear Kijani Infrastructure,
+
+Please provide an updated CR12 form (less than 6 months old) to proceed with your application.
+
+Regards,
+IHS Kenya Procurement</textarea>
+      </div>
+      <div class="flex justify-end gap-2 pt-1">
+        <button type="button" onclick="closeEmailPopover()" class="px-3 py-2 text-xs font-bold text-slate-500 hover:text-slate-700 transition-colors">Cancel</button>
+        <button type="button" class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg hover:brightness-110 transition-all flex items-center gap-1.5">
+          <iconify-icon icon="lucide:send" class="text-sm"></iconify-icon>
+          Send Message
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRM DIALOG -->
+  <div class="confirm-backdrop" id="confirm-backdrop">
+    <div class="flex items-center justify-center h-full p-8">
+      <div class="confirm-dialog bg-white rounded-2xl shadow-xl max-w-sm w-full p-8">
+        <div id="confirm-icon" class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
+          <iconify-icon icon="lucide:help-circle" class="text-2xl text-white" id="confirm-icon-svg"></iconify-icon>
+        </div>
+        <h3 class="text-base font-black brand-navy text-center mb-2" id="confirm-title">Confirm Action</h3>
+        <p class="text-xs text-slate-500 text-center mb-7" id="confirm-body">Are you sure you want to proceed?</p>
+        <div class="flex gap-3">
+          <button type="button" onclick="closeConfirmDialog()" class="flex-1 py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-all">
+            Cancel
+          </button>
+          <button type="button" id="confirm-cta" class="flex-1 py-3 rounded-xl text-white text-xs font-bold hover:brightness-110 active:scale-[0.98] transition-all">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const body = document.getElementById('body-' + id);
+      const chevron = document.getElementById('chevron-' + id);
+      const isCollapsed = body.classList.contains('collapsed');
+      if (isCollapsed) {
+        body.classList.remove('collapsed');
+        body.style.maxHeight = body.scrollHeight + 'px';
+        chevron.classList.remove('collapsed');
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(() => { body.classList.add('collapsed'); });
+        chevron.classList.add('collapsed');
+      }
+    }
+
+    function openAuditSlideOver() {
+      document.getElementById('audit-backdrop').classList.add('active');
+      document.getElementById('audit-panel').classList.add('active');
+    }
+    function closeAuditSlideOver() {
+      document.getElementById('audit-backdrop').classList.remove('active');
+      document.getElementById('audit-panel').classList.remove('active');
+    }
+
+    function openEmailPopover() {
+      document.getElementById('email-popover').classList.add('active');
+    }
+    function closeEmailPopover() {
+      document.getElementById('email-popover').classList.remove('active');
+    }
+
+    const confirmConfig = {
+      approve: { title: 'Approve Prequalification', body: 'This will mark Kijani Infrastructure Ltd as prequalified for Civil Works on Riverside Heights.', color: 'bg-green-600', icon: 'lucide:check-circle-2' },
+      reject:  { title: 'Reject Application', body: 'This will permanently reject this submission. The contractor will be notified via email.', color: 'bg-red-600', icon: 'lucide:x-circle' },
+      clarify: { title: 'Request Clarification', body: 'This will put the submission on hold and request additional documents from the contractor.', color: 'bg-blue-600', icon: 'lucide:message-circle' }
+    };
+    function openConfirmDialog(action) {
+      const cfg = confirmConfig[action];
+      document.getElementById('confirm-title').textContent = cfg.title;
+      document.getElementById('confirm-body').textContent = cfg.body;
+      const iconWrap = document.getElementById('confirm-icon');
+      iconWrap.className = 'w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 ' + cfg.color;
+      document.getElementById('confirm-icon-svg').setAttribute('icon', cfg.icon);
+      const cta = document.getElementById('confirm-cta');
+      cta.className = 'flex-1 py-3 rounded-xl text-white text-xs font-bold hover:brightness-110 active:scale-[0.98] transition-all ' + cfg.color;
+      document.getElementById('confirm-backdrop').classList.add('active');
+    }
+    function closeConfirmDialog() {
+      document.getElementById('confirm-backdrop').classList.remove('active');
+    }
+  </script>
 
 </body>
 </html>
