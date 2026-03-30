@@ -27,7 +27,7 @@
   <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
     <div class="p-6 border-b border-white/10">
       <div class="flex items-center gap-3">
-        <img src="ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto brightness-0 invert">
+        <img src="../ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto">
         <div class="flex flex-col">
           <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
         </div>
@@ -54,12 +54,16 @@
         <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
         <span class="text-sm font-semibold">Performance Analytics</span>
       </a>
+      <a href="06-project-management.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:folder-plus" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Project Management</span>
+      </a>
       <div class="pt-6 pb-2 px-4">
         <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
       </div>
-      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
-        <iconify-icon icon="lucide:shield-half" class="text-xl"></iconify-icon>
-        <span class="text-sm font-semibold">Access Control</span>
+      <a href="07-security-audit.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-check" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Security & Audit</span>
       </a>
       <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
         <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
@@ -235,10 +239,13 @@
           
           <div class="bg-white rounded-xl border border-slate-200 card-shadow overflow-hidden">
             <div class="p-5 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-              <h3 class="font-black brand-navy text-xs flex items-center gap-2 uppercase tracking-tight">
-                <iconify-icon icon="lucide:shield-check" class="text-lg text-emerald-600"></iconify-icon>
-                Eligibility Thresholds
-              </h3>
+              <div>
+                <h3 class="font-black brand-navy text-xs flex items-center gap-2 uppercase tracking-tight">
+                  <iconify-icon icon="lucide:shield-check" class="text-lg text-emerald-600"></iconify-icon>
+                  Global Eligibility Defaults
+                </h3>
+                <p class="text-xs text-slate-400 mt-1">These defaults pre-fill when creating new bid categories. Per-bid overrides are set in Project Management.</p>
+              </div>
               <button class="text-[10px] font-black brand-red hover:underline uppercase tracking-tighter">Global Edit</button>
             </div>
             <div class="p-6 space-y-6">
@@ -281,25 +288,13 @@
                   Policies defined here enforce immediate field-level rejections on the contractor portal.
                 </p>
               </div>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <p class="text-[10px] text-slate-400">Last changed: 26 Mar by Patrick Kamau (NCA Min: 5yr → 7yr)</p>
+                <a href="07-security-audit.html" class="text-[10px] font-bold text-blue-600 hover:underline">View full history</a>
+              </div>
             </div>
           </div>
 
-          <!-- INVITE EXTERNAL EXPERT (QS) -->
-          <div class="bg-white rounded-xl border border-slate-200 card-shadow p-6">
-            <h3 class="font-black brand-navy text-xs flex items-center gap-2 mb-4 uppercase tracking-tight">
-              <iconify-icon icon="lucide:user-plus" class="text-lg text-blue-600"></iconify-icon>
-              Invite Technical Reviewer
-            </h3>
-            <p class="text-[10px] text-slate-500 font-medium leading-relaxed mb-4">Grant temporary технические access to an external Quantity Surveyor or Lead Engineer for portfolio review.</p>
-            <div class="space-y-3">
-              <input type="email" placeholder="official.reviewer@email.com" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs focus:ring-2 focus:ring-blue-900/10 focus:outline-none">
-              <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-bold text-slate-500 focus:outline-none">
-                <option>Assign to Portfolio: Riverside Heights</option>
-                <option>Assign to Portfolio: Lakefront Office Towers</option>
-              </select>
-              <button class="w-full py-3 brand-bg-red text-white text-[10px] font-black rounded uppercase tracking-widest shadow-md hover:brightness-110 transition-all">Send Access Invitation</button>
-            </div>
-          </div>
 
         </div>
       </div>

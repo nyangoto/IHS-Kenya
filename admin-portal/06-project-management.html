@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management | IHS Kenya Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; color: #1E293B; }
+    .brand-navy { color: #00365A; }
+    .brand-bg-navy { background-color: #00365A; }
+    .brand-red { color: #C41E3A; }
+    .brand-bg-red { background-color: #C41E3A; }
+    .nav-active { background-color: rgba(255,255,255,0.1); border-left: 4px solid #C41E3A; }
+    .sidebar-item:hover { background-color: rgba(255,255,255,0.05); }
+    .card-shadow { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+    .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+    .collapsible-body { overflow: hidden; transition: max-height 250ms ease-out, opacity 250ms ease-out; }
+    .collapsible-body.collapsed { max-height: 0 !important; opacity: 0; }
+    .chevron-rotate { transition: transform 250ms ease-out; }
+    .chevron-rotate.collapsed { transform: rotate(-90deg); }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+  <!-- INSTITUTIONAL SIDEBAR -->
+  <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
+    <div class="p-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="../ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto">
+        <div class="flex flex-col">
+          <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="flex-1 mt-6 px-3 space-y-1">
+      <a href="02-ihs-kenya-admin-dashboard.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:layout-dashboard" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Operations Dashboard</span>
+      </a>
+      <a href="03-admin-portal-submissions-inbox.html" class="flex items-center justify-between px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <div class="flex items-center gap-3">
+          <iconify-icon icon="lucide:list-checks" class="text-xl"></iconify-icon>
+          <span class="text-sm font-semibold">Submission Pipeline</span>
+        </div>
+        <span class="bg-red-600 text-[10px] px-2 py-0.5 rounded-full font-bold text-white">14</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:archive" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Institutional Archive</span>
+      </a>
+      <a href="05-reports-analytics-ihs-kenya-admin.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Performance Analytics</span>
+      </a>
+      <a href="06-project-management.html" class="flex items-center gap-3 px-4 py-3 nav-active rounded-lg transition-all group">
+        <iconify-icon icon="lucide:folder-plus" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold text-white">Project Management</span>
+      </a>
+      <div class="pt-6 pb-2 px-4">
+        <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
+      </div>
+      <a href="07-security-audit.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-check" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Security & Audit</span>
+      </a>
+      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">System Settings</span>
+      </a>
+    </nav>
+
+    <!-- User Profile Strip -->
+    <div class="p-4 border-t border-white/10 bg-black/5">
+      <div class="flex items-center gap-3 px-2">
+        <div class="w-9 h-9 rounded-full brand-bg-red flex items-center justify-center text-xs font-black ring-2 ring-white/10">PK</div>
+        <div class="flex flex-col min-w-0">
+          <span class="text-xs font-bold text-white truncate">Patrick Kamau</span>
+          <span class="text-[9px] text-blue-300 uppercase font-bold tracking-tight">Superuser Account</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+
+    <!-- TOP GLOBAL NAVIGATION -->
+    <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 z-40">
+      <div class="flex items-center gap-4">
+        <h1 class="text-base font-bold brand-navy uppercase tracking-tight">Project Management</h1>
+        <div class="h-4 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[10px] font-bold uppercase tracking-wider">System Integrity Active</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2 text-slate-400">
+          <iconify-icon icon="lucide:calendar" class="text-lg"></iconify-icon>
+          <span class="text-xs font-semibold">26 March 2026</span>
+        </div>
+        <div class="h-8 w-px bg-slate-200"></div>
+        <button class="text-slate-400 hover:brand-navy transition-colors relative">
+          <iconify-icon icon="lucide:bell" class="text-2xl"></iconify-icon>
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-600 text-white text-[10px] flex items-center justify-center rounded-full font-bold border-2 border-white">2</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- TWO-ZONE LAYOUT -->
+    <div class="flex-1 flex overflow-hidden">
+
+      <!-- ZONE A: Project List -->
+      <div class="w-[380px] bg-white border-r border-slate-200 flex flex-col flex-shrink-0">
+        <div class="p-6 border-b border-slate-200 flex items-center justify-between">
+          <h2 class="text-sm font-black brand-navy uppercase tracking-widest">Projects</h2>
+          <button class="px-4 py-2 brand-bg-red text-white text-[10px] font-black rounded uppercase tracking-widest hover:brightness-110 transition-all shadow-md flex items-center gap-2">
+            <iconify-icon icon="lucide:plus" class="text-sm"></iconify-icon>
+            New Project
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3">
+          <!-- Project 1 — SELECTED -->
+          <div class="border-2 border-[#00365A] bg-blue-50/30 rounded-xl p-4 cursor-pointer transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-black brand-navy">Riverside Heights Development</h3>
+              <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[9px] font-black rounded border border-emerald-100 uppercase tracking-widest">Open</span>
+            </div>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3">Nairobi</p>
+            <div class="flex items-center gap-4 text-[10px] text-slate-500 font-semibold">
+              <span>5 bid categories</span>
+              <span class="text-slate-300">|</span>
+              <span>128 submissions</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="border border-slate-200 rounded-xl p-4 cursor-pointer hover:border-slate-300 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-black brand-navy">Lakefront Office Towers</h3>
+              <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[9px] font-black rounded border border-blue-100 uppercase tracking-widest">Open</span>
+            </div>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3">Kisumu</p>
+            <div class="flex items-center gap-4 text-[10px] text-slate-500 font-semibold">
+              <span>3 bid categories</span>
+              <span class="text-slate-300">|</span>
+              <span>45 submissions</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="border border-slate-200 rounded-xl p-4 cursor-pointer hover:border-slate-300 transition-all">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-black brand-navy">Green Valley Estate</h3>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-[9px] font-black rounded border border-slate-200 uppercase tracking-widest">Draft</span>
+            </div>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3">Nakuru</p>
+            <div class="flex items-center gap-4 text-[10px] text-slate-500 font-semibold">
+              <span>5 bid categories</span>
+              <span class="text-slate-300">|</span>
+              <span>0 submissions</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="border border-slate-200 rounded-xl p-4 cursor-pointer hover:border-slate-300 transition-all opacity-50">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-black brand-navy">TechPark Plaza</h3>
+              <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-[9px] font-black rounded border border-slate-200 uppercase tracking-widest">Closed</span>
+            </div>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3">Nairobi</p>
+            <div class="flex items-center gap-4 text-[10px] text-slate-500 font-semibold">
+              <span>4 bid categories</span>
+              <span class="text-slate-300">|</span>
+              <span>67 submissions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ZONE B: Project Detail -->
+      <div class="flex-1 bg-slate-50 p-8 overflow-y-auto custom-scrollbar">
+
+        <!-- Project Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h2 class="text-xl font-black brand-navy">Riverside Heights Development</h2>
+            <p class="text-[10px] text-slate-400 font-semibold mt-1">Created 15 Dec 2024 &middot; Modified 22 Mar 2026</p>
+          </div>
+          <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black rounded-full border border-emerald-100 uppercase tracking-widest">Open</span>
+        </div>
+
+        <!-- Project Details Card -->
+        <div class="bg-white rounded-xl border border-slate-200 card-shadow p-6 mb-6">
+          <h3 class="text-xs font-black brand-navy uppercase tracking-widest mb-6">Project Details</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Project Name</label>
+              <input type="text" value="Riverside Heights Development" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Location</label>
+              <input type="text" value="Riverside Heights, Nairobi" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">County</label>
+              <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10">
+                <option selected>Nairobi</option>
+                <option>Mombasa</option>
+                <option>Kisumu</option>
+                <option>Nakuru</option>
+                <option>Eldoret</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Description</label>
+              <textarea rows="3" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10 resize-none">Mixed-use residential and commercial development featuring 400+ affordable housing units across 5 towers with ground-floor retail space.</textarea>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Start Date</label>
+              <input type="date" value="2024-06-01" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">End Date</label>
+              <input type="date" value="2027-12-31" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none focus:ring-2 focus:ring-blue-900/10">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bid Categories Card -->
+        <div class="bg-white rounded-xl border border-slate-200 card-shadow p-6 mb-6">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-xs font-black brand-navy uppercase tracking-widest">Bid Categories</h3>
+            <button class="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
+              <iconify-icon icon="lucide:plus-circle" class="text-sm"></iconify-icon>
+              Add Category
+            </button>
+          </div>
+
+          <div class="space-y-3">
+
+            <!-- Bid Category 1: Civil Works — EXPANDED -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+              <button onclick="toggleSection('bid-civil')" class="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon id="bid-civil-chevron" icon="lucide:chevron-down" class="text-lg text-slate-400 chevron-rotate"></iconify-icon>
+                  <div class="text-left">
+                    <h4 class="text-sm font-bold brand-navy">Civil Works</h4>
+                    <p class="text-[10px] text-slate-400 font-semibold">NCA 3+ &middot; KES 50M+ &middot; 5yr+ &middot; Opens 15 Jan 2025 &middot; Deadline 30 Apr 2025</p>
+                  </div>
+                </div>
+              </button>
+              <div id="bid-civil-body" class="collapsible-body" style="max-height: 600px;">
+                <div class="px-4 pb-4 border-t border-slate-100">
+                  <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Category</label>
+                      <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                        <option selected>Civil Works</option>
+                        <option>MEP Services</option>
+                        <option>Supply Services</option>
+                        <option>Interior Works</option>
+                        <option>Landscaping & External</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Min NCA Class</label>
+                      <select class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                        <option>NCA 1</option>
+                        <option>NCA 2</option>
+                        <option selected>NCA 3</option>
+                        <option>NCA 4</option>
+                        <option>NCA 5</option>
+                        <option>NCA 6</option>
+                        <option>NCA 7</option>
+                        <option>NCA 8</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Min Turnover (KES)</label>
+                      <input type="text" value="50,000,000" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                    </div>
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Min Experience (Years)</label>
+                      <input type="number" value="5" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                    </div>
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Opens</label>
+                      <input type="date" value="2025-01-15" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                    </div>
+                    <div>
+                      <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Deadline</label>
+                      <input type="date" value="2025-04-30" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded text-xs font-semibold brand-navy focus:outline-none">
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between mt-4 pt-4 border-t border-slate-100">
+                    <a href="#" class="text-[10px] font-bold text-blue-600 hover:underline">Defaults from global settings</a>
+                    <button class="text-[10px] font-bold text-red-600 hover:underline">Remove Category</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bid Category 2: MEP Services — COLLAPSED -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+              <button onclick="toggleSection('bid-mep')" class="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon id="bid-mep-chevron" icon="lucide:chevron-down" class="text-lg text-slate-400 chevron-rotate collapsed"></iconify-icon>
+                  <div class="text-left">
+                    <h4 class="text-sm font-bold brand-navy">MEP Services</h4>
+                    <p class="text-[10px] text-slate-400 font-semibold">NCA 4+ &middot; KES 30M+ &middot; 3yr+ &middot; Closes 30 Apr 2025</p>
+                  </div>
+                </div>
+              </button>
+              <div id="bid-mep-body" class="collapsible-body collapsed" style="max-height: 600px;">
+                <div class="px-4 pb-4 border-t border-slate-100">
+                  <p class="text-xs text-slate-400 mt-4">Category details would appear here.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bid Category 3: Supply Services — COLLAPSED -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+              <button onclick="toggleSection('bid-supply')" class="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon id="bid-supply-chevron" icon="lucide:chevron-down" class="text-lg text-slate-400 chevron-rotate collapsed"></iconify-icon>
+                  <div class="text-left">
+                    <h4 class="text-sm font-bold brand-navy">Supply Services</h4>
+                    <p class="text-[10px] text-slate-400 font-semibold">NCA 6+ &middot; KES 10M+ &middot; 2yr+ &middot; Closes 15 May 2025</p>
+                  </div>
+                </div>
+              </button>
+              <div id="bid-supply-body" class="collapsible-body collapsed" style="max-height: 600px;">
+                <div class="px-4 pb-4 border-t border-slate-100">
+                  <p class="text-xs text-slate-400 mt-4">Category details would appear here.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bid Category 4: Interior Works — COLLAPSED -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+              <button onclick="toggleSection('bid-interior')" class="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon id="bid-interior-chevron" icon="lucide:chevron-down" class="text-lg text-slate-400 chevron-rotate collapsed"></iconify-icon>
+                  <div class="text-left">
+                    <h4 class="text-sm font-bold brand-navy">Interior Works</h4>
+                    <p class="text-[10px] text-slate-400 font-semibold">NCA 5+ &middot; KES 20M+ &middot; 3yr+ &middot; Closes 15 May 2025</p>
+                  </div>
+                </div>
+              </button>
+              <div id="bid-interior-body" class="collapsible-body collapsed" style="max-height: 600px;">
+                <div class="px-4 pb-4 border-t border-slate-100">
+                  <p class="text-xs text-slate-400 mt-4">Category details would appear here.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bid Category 5: Landscaping & External — COLLAPSED -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden">
+              <button onclick="toggleSection('bid-landscape')" class="w-full flex items-center justify-between p-4 hover:bg-slate-50 transition-colors">
+                <div class="flex items-center gap-3">
+                  <iconify-icon id="bid-landscape-chevron" icon="lucide:chevron-down" class="text-lg text-slate-400 chevron-rotate collapsed"></iconify-icon>
+                  <div class="text-left">
+                    <h4 class="text-sm font-bold brand-navy">Landscaping & External</h4>
+                    <p class="text-[10px] text-slate-400 font-semibold">NCA 7+ &middot; KES 5M+ &middot; 2yr+ &middot; Closes 30 May 2025</p>
+                  </div>
+                </div>
+              </button>
+              <div id="bid-landscape-body" class="collapsible-body collapsed" style="max-height: 600px;">
+                <div class="px-4 pb-4 border-t border-slate-100">
+                  <p class="text-xs text-slate-400 mt-4">Category details would appear here.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Save Buttons -->
+        <div class="flex items-center gap-3 justify-end">
+          <button class="px-6 py-3 border border-slate-300 text-slate-600 text-[10px] font-black rounded uppercase tracking-widest hover:bg-slate-100 transition-all">Save as Draft</button>
+          <button class="px-6 py-3 bg-emerald-600 text-white text-[10px] font-black rounded uppercase tracking-widest hover:brightness-110 transition-all shadow-md">Publish Project</button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    function toggleSection(id) {
+      const body = document.getElementById(id + '-body');
+      const chevron = document.getElementById(id + '-chevron');
+      body.classList.toggle('collapsed');
+      chevron.classList.toggle('collapsed');
+    }
+  </script>
+
+</body>
+</html>

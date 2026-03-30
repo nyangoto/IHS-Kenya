@@ -1,0 +1,38 @@
+Website Developer brief – Online contractor Prequalification tab on IHS-Kenya website
+1.0 Objective
+To develop a publicly accessible prequalification enlistment portal on the company website that:
+* Transparently publishes enlistment criteria,
+* Allows contractors to apply for enlistment online,
+* Restricts enlistment to firms legally able to operate in Kenya, and
+* Supports internal procurement governance and audit requirements.
+The system is intended for enlistment for prequalification only and does not guarantee prequalification invitation, tender invitations or contract awards.
+2.0 Criteria for enlisting
+      2.1 Legal & Statutory compliance
+* Copy of Business Registration or Certificate of Incorporation
+* Copy of CR12 for Limited Companies
+* Copy of KRA PIN Certificate
+* Copy of valid Tax Compliance Certificate
+* Copy of Registration with National Construction Authority (NCA) for Building works Contractor
+* Copy of Valid Contractor Annual Practicing License from National Construction Authority (NCA) Building Works Contractor
+      2.2 Relevant Kenyan experience
+* Contractors must demonstrate proven experience delivering building projects within Kenya. This shall include:
+* A minimum of three (3) completed projects undertaken in Kenya within the last five (5) years
+* Experience on projects of comparable scale, complexity, and typology (e.g. residential, affordable housing, mixed-use)
+* Clear indication of the contractor’s role as main contractor
+Projects executed outside Kenya may be provided for reference but will not substitute for Kenyan experience.
+      
+      2.3 Enlistment Conditions
+* Enlistment is subject to internal evaluation and approval.
+* The register of prequalified contractors is reviewed periodically.
+* Enlistment does not guarantee invitation for prequalification, to tender or award of any contract.
+* IHS reserves the right to request additional information or reject any application without obligation to provide reasons
+3.0 References: -
+* KPLC e-procurement
+* Key Features to Take from This Example
+? Clear publicly posted criteria (legal, compliance, experience)
+? An online supplier registration/prequalification form
+? Upload fields for statutory documents
+? Category selection (works, materials, specialist services)
+? Instructions and deadlines or validity periods
+? An inbox or portal for submission tracking
+

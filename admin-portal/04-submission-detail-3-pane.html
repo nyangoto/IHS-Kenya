@@ -21,6 +21,20 @@
     .custom-scrollbar::-webkit-scrollbar { width: 5px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+    .collapsible-body { overflow: hidden; transition: max-height 250ms ease-out, opacity 250ms ease-out; }
+    .collapsible-body.collapsed { max-height: 0 !important; opacity: 0; }
+    .chevron-rotate { transition: transform 250ms ease-out; }
+    .chevron-rotate.collapsed { transform: rotate(-90deg); }
+    .slide-over-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.3); opacity: 0; transition: opacity 300ms ease-out; pointer-events: none; z-index: 60; }
+    .slide-over-backdrop.active { opacity: 1; pointer-events: auto; }
+    .slide-over-panel { position: fixed; top: 0; right: 0; bottom: 0; width: 400px; background: white; transform: translateX(100%); transition: transform 300ms ease-out; z-index: 70; box-shadow: -4px 0 20px rgba(0,0,0,0.1); }
+    .slide-over-panel.active { transform: translateX(0); }
+    .email-popover { position: fixed; bottom: 24px; right: 24px; width: 420px; background: white; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); transform: translateY(20px); opacity: 0; transition: all 200ms ease-out; pointer-events: none; z-index: 80; }
+    .email-popover.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .confirm-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); opacity: 0; transition: opacity 200ms ease-out; pointer-events: none; z-index: 90; }
+    .confirm-backdrop.active { opacity: 1; pointer-events: auto; }
+    .confirm-dialog { transform: scale(0.95); transition: transform 200ms ease-out; }
+    .confirm-backdrop.active .confirm-dialog { transform: scale(1); }
   </style>
 </head>
 <body class="flex h-screen overflow-hidden">
@@ -29,7 +43,7 @@
   <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
     <div class="p-6 border-b border-white/10">
       <div class="flex items-center gap-3">
-        <img src="ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto brightness-0 invert">
+        <img src="../ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto">
         <div class="flex flex-col">
           <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
         </div>
@@ -56,12 +70,16 @@
         <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
         <span class="text-sm font-semibold">Performance Analytics</span>
       </a>
+      <a href="06-project-management.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:folder-plus" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Project Management</span>
+      </a>
       <div class="pt-6 pb-2 px-4">
         <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
       </div>
-      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
-        <iconify-icon icon="lucide:shield-half" class="text-xl"></iconify-icon>
-        <span class="text-sm font-semibold">Access Control</span>
+      <a href="07-security-audit.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-check" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Security & Audit</span>
       </a>
       <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
         <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>

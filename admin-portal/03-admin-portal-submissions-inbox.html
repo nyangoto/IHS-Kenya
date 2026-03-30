@@ -29,7 +29,7 @@
   <aside class="w-64 brand-bg-navy text-white flex flex-col flex-shrink-0 z-50">
     <div class="p-6 border-b border-white/10">
       <div class="flex items-center gap-3">
-        <img src="ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto brightness-0 invert">
+        <img src="../ihs-kenya-logo.png" alt="IHS Kenya" class="h-10 w-auto">
         <div class="flex flex-col">
           <span class="text-[10px] font-bold opacity-50 tracking-[0.2em] uppercase text-blue-200">Admin Portal</span>
         </div>
@@ -56,12 +56,16 @@
         <iconify-icon icon="lucide:bar-chart-horizontal" class="text-xl"></iconify-icon>
         <span class="text-sm font-semibold">Performance Analytics</span>
       </a>
+      <a href="06-project-management.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:folder-plus" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Project Management</span>
+      </a>
       <div class="pt-6 pb-2 px-4">
         <span class="text-[10px] text-white/30 font-bold uppercase tracking-widest">Administration</span>
       </div>
-      <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
-        <iconify-icon icon="lucide:shield-half" class="text-xl"></iconify-icon>
-        <span class="text-sm font-semibold">Access Control</span>
+      <a href="07-security-audit.html" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
+        <iconify-icon icon="lucide:shield-check" class="text-xl"></iconify-icon>
+        <span class="text-sm font-semibold">Security & Audit</span>
       </a>
       <a href="#" class="flex items-center gap-3 px-4 py-3 sidebar-item rounded-lg text-white/70 hover:text-white transition-all group">
         <iconify-icon icon="lucide:settings" class="text-xl"></iconify-icon>
@@ -119,6 +123,16 @@
           <iconify-icon icon="lucide:search" class="absolute left-3 text-slate-400"></iconify-icon>
           <input type="text" placeholder="Search contractors..." class="pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-900/10 focus:outline-none w-48">
         </div>
+        <div>
+          <select class="px-4 py-2.5 border border-slate-200 rounded-md text-xs font-semibold text-slate-600 bg-white focus:outline-none focus:border-blue-400">
+            <option>All Statuses</option>
+            <option>Verified</option>
+            <option>Flagged</option>
+            <option>Pending Docs</option>
+            <option>Awaiting QS</option>
+            <option>Under Review</option>
+          </select>
+        </div>
         <div class="h-8 w-px bg-slate-200"></div>
         <button class="text-slate-400 hover:brand-navy transition-colors relative">
           <iconify-icon icon="lucide:bell" class="text-2xl"></iconify-icon>
@@ -167,8 +181,8 @@
                 <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Contractor Entity</th>
                 <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">NCA Class / Exp</th>
                 <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Compliance Status</th>
-                <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Technical Rating</th>
                 <th class="px-6 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right">Actions</th>
+                <th class="text-left py-3 px-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">References</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
@@ -193,22 +207,13 @@
                     <iconify-icon icon="lucide:shield-check" class="text-emerald-600"></iconify-icon>
                   </div>
                 </td>
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-1">
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-slate-200 text-sm"></iconify-icon>
-                    <span class="text-xs font-bold brand-navy ml-1">4.0</span>
-                  </div>
-                </td>
                 <td class="px-6 py-4 text-right">
                   <a href="04-submission-detail-3-pane.html" class="inline-flex items-center gap-2 brand-bg-navy text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:brightness-110 transition-all shadow-sm">
                     Start Review
                     <iconify-icon icon="lucide:chevron-right"></iconify-icon>
                   </a>
                 </td>
+                <td class="py-3 px-4"><span class="text-xs font-semibold text-slate-600">4 projects · Main</span></td>
               </tr>
 
               <!-- Row 2 -->
@@ -231,15 +236,13 @@
                     <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[10px] font-black rounded border border-blue-100 uppercase">Awaiting QS</span>
                   </div>
                 </td>
-                <td class="px-6 py-4">
-                  <span class="text-xs font-bold text-slate-300 italic">Pending Assessment</span>
-                </td>
                 <td class="px-6 py-4 text-right">
                   <button class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-lg text-xs font-bold hover:brand-bg-navy hover:text-white transition-all">
                     Assign to QS
                     <iconify-icon icon="lucide:user-plus"></iconify-icon>
                   </button>
                 </td>
+                <td class="py-3 px-4"><span class="text-xs font-semibold text-slate-600">3 projects · JV</span></td>
               </tr>
 
               <!-- Row 3 -->
@@ -263,22 +266,13 @@
                     <iconify-icon icon="lucide:alert-triangle" class="text-red-600"></iconify-icon>
                   </div>
                 </td>
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-1">
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-slate-200 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-slate-200 text-sm"></iconify-icon>
-                    <span class="text-xs font-bold brand-navy ml-1">3.0</span>
-                  </div>
-                </td>
                 <td class="px-6 py-4 text-right">
                   <a href="04-submission-detail-3-pane.html" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-lg text-xs font-bold hover:brand-bg-navy hover:text-white transition-all">
                     Start Review
                     <iconify-icon icon="lucide:chevron-right"></iconify-icon>
                   </a>
                 </td>
+                <td class="py-3 px-4"><span class="text-xs font-semibold text-slate-600">5 projects · Main</span></td>
               </tr>
 
               <!-- Row 4 -->
@@ -302,22 +296,13 @@
                     <iconify-icon icon="lucide:shield-check" class="text-emerald-600"></iconify-icon>
                   </div>
                 </td>
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-1">
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <span class="text-xs font-bold brand-navy ml-1">5.0</span>
-                  </div>
-                </td>
                 <td class="px-6 py-4 text-right">
                   <a href="04-submission-detail-3-pane.html" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-lg text-xs font-bold hover:brand-bg-navy hover:text-white transition-all">
                     Start Review
                     <iconify-icon icon="lucide:chevron-right"></iconify-icon>
                   </a>
                 </td>
+                <td class="py-3 px-4"><span class="text-xs font-semibold text-slate-600">3 projects · Main</span></td>
               </tr>
 
               <!-- Row 5 -->
@@ -341,22 +326,13 @@
                     <iconify-icon icon="lucide:shield-check" class="text-emerald-600"></iconify-icon>
                   </div>
                 </td>
-                <td class="px-6 py-4">
-                  <div class="flex items-center gap-1">
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-amber-400 text-sm"></iconify-icon>
-                    <iconify-icon icon="lucide:star" class="text-slate-200 text-sm"></iconify-icon>
-                    <span class="text-xs font-bold brand-navy ml-1">3.8</span>
-                  </div>
-                </td>
                 <td class="px-6 py-4 text-right">
                   <a href="04-submission-detail-3-pane.html" class="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-lg text-xs font-bold hover:brand-bg-navy hover:text-white transition-all">
                     Start Review
                     <iconify-icon icon="lucide:chevron-right"></iconify-icon>
                   </a>
                 </td>
+                <td class="py-3 px-4"><span class="text-xs font-semibold text-slate-600">3 projects · Sub</span></td>
               </tr>
 
               <!-- Row 6 -->
